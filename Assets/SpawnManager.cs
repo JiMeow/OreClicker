@@ -46,6 +46,10 @@ public class SpawnManager : MonoBehaviour
         Instantiate(treePrefab, spawnPoint, Quaternion.identity);
     }
 
+    /// <summary>
+    /// It takes a float value (percent) then decrease the spawncooldown of the tree by that percent
+    /// </summary>
+    /// <param name="percent">The percentage of the current spawn time to decrease by.</param>
     public void SetSpawnTimeDown(float percent)
     {
         spawnTime *= (1.0f - percent / 100f);

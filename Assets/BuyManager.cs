@@ -11,6 +11,10 @@ public class BuyManager : MonoBehaviour
     {
         quantity = InventoryManager.instance.GetQuantity();
     }
+
+    /// <summary>
+    /// if player buy increase chest speed by 50 and player have apple more than 4, then decrease apple quantity by 4 and increase chest speed by 50 percents
+    /// </summary>
     public void BuyChestSpeed50()
     {
         if (quantity[0] >= 4)
@@ -21,6 +25,9 @@ public class BuyManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// if player buy increase chest speed by 50 and player have apple more than 10, then decrease apple quantity by 10 and increase chest speed by 50 percents
+    /// </summary>
     public void BuyTreeSpawn50()
     {
         if (quantity[1] >= 10)

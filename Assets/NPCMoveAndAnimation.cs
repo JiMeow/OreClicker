@@ -78,6 +78,10 @@ public class NPCMoveAndAnimation : MonoBehaviour
         GetComponent<Animator>().SetBool("isEating", false);
     }
 
+    /// <summary>
+    /// It takes a float value (percent) then increases the speed of the NPC by that percent
+    /// </summary>
+    /// <param name="percent">The percentage of speed increase.</param>
     public void SetSpeedUp(float percent)
     {
         NpcSpeed *= (1f + percent / 100f);
