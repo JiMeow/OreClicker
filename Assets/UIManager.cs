@@ -8,10 +8,17 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
     [SerializeField]
     GameObject[] QuantitiesText;
+    [SerializeField]
+    GameObject WindowUpgradesUI;
 
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        WindowUpgradesUI.SetActive(false);
     }
 
     /// <summary>
@@ -24,6 +31,21 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < QuantitiesText.Length; i++)
         {
             QuantitiesText[i].GetComponent<Text>().text = quantity[i].ToString();
+        }
+    }
+
+    /// <summary>
+    /// show the window with the upgrades if it is not already shown else hide it
+    /// </summary>
+    public void ShowWindowUpgradesUI()
+    {
+        if (WindowUpgradesUI.activeSelf)
+        {
+            WindowUpgradesUI.SetActive(false);
+        }
+        else
+        {
+            WindowUpgradesUI.SetActive(true);
         }
     }
 }
