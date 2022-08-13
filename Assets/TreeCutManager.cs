@@ -8,14 +8,25 @@ public class TreeCutManager : MonoBehaviour
     GameObject applePrefab;
     public int durable;
 
+
     /// <summary>
-    /// When the mouse is clicked on the apple, the apple's durability is reduced by one. If the
-    /// durability is zero, the apple is dropped and the tree becomes transparent. If the durability is
-    /// not zero, the tree shakes
+    /// If the player clicks on the tree, the tree will be cut down with power = 1
     /// </summary>
     private void OnMouseDown()
     {
-        durable--;
+        CutTree(1);
+    }
+
+    /// <summary>
+    /// If the power is equal 0 or the durable equal to 0, then the power is set to 1, otherwise the power is
+    /// set to the old power then reduce durable by power if durable is 0 drop the apple then tranparent the tree
+    /// else shake tree
+    /// </summary>
+    /// <param name="power">The power of the axe.</param>
+    public void CutTree(int power)
+    {
+        power = Mathf.Max(power, durable) == 0 ? 1 : power;
+        durable -= power;
         if (durable == 0)
         {
             DropApple();

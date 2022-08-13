@@ -30,11 +30,25 @@ public class BuyManager : MonoBehaviour
     /// </summary>
     public void BuyTreeSpawn50()
     {
-        if (quantity[1] >= 10)
+        if (quantity[0] >= 10)
         {
-            quantity[1] -= 10;
+            quantity[0] -= 10;
             UIManager.instance.SetQuantityText();
             SpawnManager.instance.SetSpawnTimeDown(50);
+        }
+    }
+
+    /// <summary>
+    /// If the player has 25 of the apple, then subtract 25 from the quantity of the apple,
+    /// update the UI, and set the NPC's cut delay time to 4
+    /// </summary>
+    public void BuyChestAutoCut4()
+    {
+        if (quantity[0] >= 25)
+        {
+            quantity[0] -= 25;
+            UIManager.instance.SetQuantityText();
+            NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(4);
         }
     }
 }
