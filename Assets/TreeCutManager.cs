@@ -8,6 +8,11 @@ public class TreeCutManager : MonoBehaviour
     GameObject applePrefab;
     public int durable;
 
+    /// <summary>
+    /// When the mouse is clicked on the apple, the apple's durability is reduced by one. If the
+    /// durability is zero, the apple is dropped and the tree becomes transparent. If the durability is
+    /// not zero, the tree shakes
+    /// </summary>
     private void OnMouseDown()
     {
         durable--;
@@ -22,12 +27,19 @@ public class TreeCutManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// start the coroutine to make the tree shake
+    /// </summary>
     private void TreeShake()
     {
         float shakeTime = 0.05f;
         StartCoroutine(Shake(shakeTime));
     }
 
+    /// <summary>
+    /// shake the tree by move tree by little distance then back to normal position for a given time
+    /// </summary>
+    /// <param name="shaketime">The amount of time the camera will shake for.</param>
     IEnumerator Shake(float shaketime)
     {
         Vector3 originalPosition = transform.position;
@@ -43,12 +55,19 @@ public class TreeCutManager : MonoBehaviour
         transform.position = originalPosition;
     }
 
+    /// <summary>
+    /// It spawns an apple at the tree's position.
+    /// </summary>
     private void DropApple()
     {
         Vector2 spawnPoint = new Vector2(transform.position.x, transform.position.y);
         Instantiate(applePrefab, spawnPoint, Quaternion.identity);
     }
 
+    /// <summary>
+    /// While the alpha value of the sprite renderer is greater than 0, subtract the delta time from the
+    /// alpha value of the sprite renderer, if the alpha value is lower than 0 then destroy the tree.
+    /// </summary>
     IEnumerator TransparentThisGameObject()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();

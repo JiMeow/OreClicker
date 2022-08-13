@@ -20,6 +20,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
+        // every spawnTime seconds, spawn a tree
         if (Time.time - countTime > spawnTime)
         {
             SpawnTree();
@@ -27,6 +28,10 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// It creates a random position within the bounds of the map, and then spawns a tree at that
+    /// position
+    /// </summary>
     void SpawnTree()
     {
         float x = Random.Range(topleftx, bottomrightx);

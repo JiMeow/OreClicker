@@ -15,6 +15,10 @@ public class AppleManager : MonoBehaviour
         DropToFloor();
     }
 
+    /// <summary>
+    /// If the dropDistance is greater than 0, then subtract time in frame from dropDistance and move
+    /// the object down by time in frame
+    /// </summary>
     void DropToFloor()
     {
         if (dropDistance > 0)
