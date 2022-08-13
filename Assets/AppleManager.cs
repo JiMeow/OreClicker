@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AppleManager : MonoBehaviour
 {
+    [SerializeField]
+    GameObject NPC;
     float dropDistance;
     void Start()
     {
@@ -27,4 +29,20 @@ public class AppleManager : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y - Time.deltaTime, transform.position.z);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "NPC")
+        {
+            other.gameObject.GetComponent<NPCGetItemManager>().GetItem(gameObject);
+            other.gameObject.GetComponent<NPCMoveAndAnimation>().SetEatingAnimation();
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        NPC.GetComponent<NPCMoveAndAnimation>().MoveToPoint(new Vector2(transform.position.x, transform.position.y - dropDistance));
+    }
+
 }
