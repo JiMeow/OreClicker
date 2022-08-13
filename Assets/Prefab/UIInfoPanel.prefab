@@ -2733,7 +2733,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Increase chest move
 
-    ment speed 20 %'
+    ment speed 50 %'
 --- !u!1 &5069814520541569319
 GameObject:
   m_ObjectHideFlags: 0

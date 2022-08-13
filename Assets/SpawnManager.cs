@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    public static SpawnManager instance;
     [SerializeField]
     GameObject treePrefab;
     public float spawnTime;
@@ -12,6 +13,11 @@ public class SpawnManager : MonoBehaviour
     float toplefty = 1.00f;
     float bottomrightx = 2.75f;
     float bottomrighty = -1.0f;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -40,4 +46,8 @@ public class SpawnManager : MonoBehaviour
         Instantiate(treePrefab, spawnPoint, Quaternion.identity);
     }
 
+    public void SetSpawnTimeDown(float percent)
+    {
+        spawnTime *= (1.0f - percent / 100f);
+    }
 }

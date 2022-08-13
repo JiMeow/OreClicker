@@ -6,7 +6,7 @@ public class NPCMoveAndAnimation : MonoBehaviour
 {
     // have to move equal to vectorToGo for go to destination
     public Vector2 vectorToGo;
-    public float NpcSpeed = 1f;
+    public float NpcSpeed;
 
     void Start()
     {
@@ -76,5 +76,10 @@ public class NPCMoveAndAnimation : MonoBehaviour
     public void SetIdleAnimation()
     {
         GetComponent<Animator>().SetBool("isEating", false);
+    }
+
+    public void SetSpeedUp(float percent)
+    {
+        NpcSpeed *= (1f + percent / 100f);
     }
 }
