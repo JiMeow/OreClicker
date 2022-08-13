@@ -16,7 +16,7 @@ public class InventoryManager : MonoBehaviour
         instance = this;
     }
 
-    void Start()
+    private void Start()
     {
         NameToIndex = new Dictionary<string, int>();
         NameToIndex.Add("Apple", 0);

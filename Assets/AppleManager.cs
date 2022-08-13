@@ -7,12 +7,12 @@ public class AppleManager : MonoBehaviour
     [SerializeField]
     GameObject NPC;
     float dropDistance;
-    void Start()
+    private void Start()
     {
         dropDistance = 0.44f;
     }
 
-    void Update()
+    private void Update()
     {
         DropToFloor();
     }
@@ -21,7 +21,7 @@ public class AppleManager : MonoBehaviour
     /// If the dropDistance is greater than 0, then subtract time in frame from dropDistance and move
     /// the object down by time in frame
     /// </summary>
-    void DropToFloor()
+    private void DropToFloor()
     {
         if (dropDistance > 0)
         {

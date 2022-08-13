@@ -16,7 +16,7 @@ public class NPCGetItemManager : MonoBehaviour
         NPCmove = GetComponent<NPCMoveAndAnimation>();
     }
 
-    void Update()
+    private void Update()
     {
         // increase countTime by time in frame
         countTime += Time.deltaTime;

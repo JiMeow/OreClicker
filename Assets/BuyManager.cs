@@ -7,7 +7,7 @@ public class BuyManager : MonoBehaviour
     int[] quantity = new int[5];
     [SerializeField]
     GameObject NPC;
-    void Start()
+    private void Start()
     {
         quantity = InventoryManager.instance.GetQuantity();
     }

@@ -9,17 +9,17 @@ public class NPCMoveAndAnimation : MonoBehaviour
     public float NpcSpeed;
     bool whenStopCutTree = false;
 
-    void Start()
+    private void Start()
     {
         vectorToGo = new Vector2(0, 0);
     }
 
-    void Update()
+    private void Update()
     {
         Move();
     }
 
-    void Move()
+    private void Move()
     {
         // if have to move
         if (vectorToGo.magnitude > 0.01f)
@@ -83,7 +83,7 @@ public class NPCMoveAndAnimation : MonoBehaviour
     /// <summary>
     /// Set the idle animation to true (set false in isEating)
     /// </summary>
-    public void SetIdleAnimation()
+    private void SetIdleAnimation()
     {
         GetComponent<Animator>().SetBool("isEating", false);
     }
