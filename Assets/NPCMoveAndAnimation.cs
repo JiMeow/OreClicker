@@ -130,7 +130,11 @@ public class NPCMoveAndAnimation : MonoBehaviour
         {
             // have 1 prototype tree in scene for instantiate so ignore the this tree
             if (tree.transform.position.x < -5) continue;
-            float distance = EuclideanDistance(tree.transform.position, transform.position);
+
+            Vector3 treePosition = tree.transform.position;
+            treePosition.y -= 0.44f;
+
+            float distance = EuclideanDistance(treePosition, transform.position);
             if (distance < minimumDistance)
             {
                 minimumDistance = distance;

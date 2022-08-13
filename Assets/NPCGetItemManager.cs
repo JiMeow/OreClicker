@@ -90,6 +90,6 @@ public class NPCGetItemManager : MonoBehaviour
     /// <param name="time">The time to delay the cut.</param>
     public void SetCutDelayTime(float time)
     {
-        cutDelayTime = time;
+        cutDelayTime = Mathf.Min(time, cutDelayTime);
     }
 }
