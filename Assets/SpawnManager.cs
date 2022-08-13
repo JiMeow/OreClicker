@@ -9,7 +9,7 @@ public class SpawnManager : MonoBehaviour
     public float spawnTime;
     public float countTime;
     float topleftx = -2.65f;
-    float toplefty = 1.25f;
+    float toplefty = 1.00f;
     float bottomrightx = 2.75f;
     float bottomrighty = -1.0f;
 
