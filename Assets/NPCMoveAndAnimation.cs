@@ -22,7 +22,7 @@ public class NPCMoveAndAnimation : MonoBehaviour
     private void Move()
     {
         // if have to move
-        if (vectorToGo.magnitude > 0.01f)
+        if (vectorToGo.magnitude > 0)
         {
             // move towards destination by NpcSpeed
             Vector2 move = vectorToGo.normalized * NpcSpeed * Time.deltaTime;
@@ -35,7 +35,7 @@ public class NPCMoveAndAnimation : MonoBehaviour
             transform.Translate(move);
             // subtract move from distance to go
             vectorToGo -= move;
-            if (vectorToGo.magnitude <= 0.01f)
+            if (vectorToGo.magnitude == 0)
             {
                 // if NPC is at destination and whenStopCutTree is true, then cut closet tree
                 if (whenStopCutTree)
@@ -64,7 +64,7 @@ public class NPCMoveAndAnimation : MonoBehaviour
     public void MoveToPoint(Vector2 worldPosition, bool whenStopCutTree = false)
     {
         // if not moving
-        if (vectorToGo.magnitude < 0.01f)
+        if (vectorToGo.magnitude == 0)
         {
             vectorToGo = worldPosition - new Vector2(transform.position.x, transform.position.y);
             this.whenStopCutTree = whenStopCutTree;
@@ -105,7 +105,7 @@ public class NPCMoveAndAnimation : MonoBehaviour
     /// </returns>
     public bool isMoving()
     {
-        if (vectorToGo.magnitude >= 0.01f)
+        if (vectorToGo.magnitude != 0)
         {
             return true;
         }
