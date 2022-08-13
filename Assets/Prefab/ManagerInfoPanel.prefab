@@ -76,4 +76,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a37f92746b0f3341ba6a1dc24effaac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treePrefab: {fileID: 6723029796869905757, guid: 47c21a7179d91184597f52f2b73bc9ca, type: 3}
+  treePrefab: {fileID: 0}
+  spawnTime: 0
+  countTime: 0
