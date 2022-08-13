@@ -30,6 +30,9 @@ public class AppleManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// If this object that enters the trigger is an NPC, then the NPC will get the item and move to it then destroy it
+    /// </summary>
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "NPC")
@@ -40,6 +43,10 @@ public class AppleManager : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// When the player clicks on the object, the NPC will move to the position of the object but position is at on the floor (dropDistance=0)
+    /// </summary>
     private void OnMouseDown()
     {
         NPC.GetComponent<NPCMoveAndAnimation>().MoveToPoint(new Vector2(transform.position.x, transform.position.y - dropDistance));
