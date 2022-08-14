@@ -400,23 +400,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4249014017294625289, guid: 1631b7a7ee647024f98c240a1add942f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4249014017294625289, guid: 1631b7a7ee647024f98c240a1add942f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4249014017294625289, guid: 1631b7a7ee647024f98c240a1add942f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 237.36
       objectReference: {fileID: 0}
     - target: {fileID: 4249014017294625289, guid: 1631b7a7ee647024f98c240a1add942f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 118.68
       objectReference: {fileID: 0}
     - target: {fileID: 4249014017294625289, guid: 1631b7a7ee647024f98c240a1add942f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -487.5
       objectReference: {fileID: 0}
     - target: {fileID: 4318202841712695518, guid: 1631b7a7ee647024f98c240a1add942f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -683,6 +683,10 @@ PrefabInstance:
       value: 'Increase chest move
 
         ment speed 50 %'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324118451764077853, guid: 1631b7a7ee647024f98c240a1add942f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8389365505635580644, guid: 1631b7a7ee647024f98c240a1add942f, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1220,7 +1224,7 @@ PrefabInstance:
       objectReference: {fileID: 440137080}
     - target: {fileID: 4228160448261778451, guid: dbf87fa2ef073234d91e46b5e9994415, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4289620439568916649, guid: dbf87fa2ef073234d91e46b5e9994415, type: 3}
       propertyPath: NPC
