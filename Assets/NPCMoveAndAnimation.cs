@@ -6,12 +6,14 @@ public class NPCMoveAndAnimation : MonoBehaviour
 {
     // have to move equal to vectorToGo for go to destination
     public Vector2 vectorToGo;
+    public bool isCutting;
     public float NpcSpeed;
     bool whenStopCutTree = false;
 
     private void Start()
     {
         vectorToGo = new Vector2(0, 0);
+        isCutting = false;
     }
 
     private void Update()
@@ -21,8 +23,8 @@ public class NPCMoveAndAnimation : MonoBehaviour
 
     private void Move()
     {
-        // if have to move
-        if (vectorToGo.magnitude > 0)
+        // if have to move to cut tree
+        if (isCutting)
         {
             // move towards destination by NpcSpeed
             Vector2 move = vectorToGo.normalized * NpcSpeed * Time.deltaTime;
@@ -35,12 +37,17 @@ public class NPCMoveAndAnimation : MonoBehaviour
             transform.Translate(move);
             // subtract move from distance to go
             vectorToGo -= move;
-            if (vectorToGo.magnitude == 0)
+            if (vectorToGo.magnitude <= 0.001f)
             {
                 // if NPC is at destination and whenStopCutTree is true, then cut closet tree
                 if (whenStopCutTree)
                 {
                     CutClosetTree();
+                }
+                // else stop moving
+                else
+                {
+                    isCutting = false;
                 }
             }
         }
@@ -63,11 +70,12 @@ public class NPCMoveAndAnimation : MonoBehaviour
     /// <param name="Vector2">The position you want the object to move to.</param>
     public void MoveToPoint(Vector2 worldPosition, bool whenStopCutTree = false)
     {
-        // if not moving
-        if (vectorToGo.magnitude == 0)
+        // if not go for cutting
+        if (!isCutting)
         {
             vectorToGo = worldPosition - new Vector2(transform.position.x, transform.position.y);
             this.whenStopCutTree = whenStopCutTree;
+            isCutting = true;
         }
     }
 
@@ -98,21 +106,14 @@ public class NPCMoveAndAnimation : MonoBehaviour
     }
 
     /// <summary>
-    /// If chest is moving, then return true else return false
+    /// If chest is cutting tree, then return true else return false
     /// </summary>
     /// <returns>
     /// A boolean value.
     /// </returns>
-    public bool isMoving()
+    public bool isCut()
     {
-        if (vectorToGo.magnitude != 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return isCutting;
     }
 
     /// <summary>
@@ -146,6 +147,7 @@ public class NPCMoveAndAnimation : MonoBehaviour
             minimumDistanceTree.GetComponent<TreeCutManager>().CutTree(3);
             whenStopCutTree = false;
         }
+        isCutting = false;
     }
 
     /// <summary>

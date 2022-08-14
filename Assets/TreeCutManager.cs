@@ -7,7 +7,7 @@ public class TreeCutManager : MonoBehaviour
     [SerializeField]
     GameObject applePrefab;
     public int durable;
-
+    bool notCuted = true;
 
     /// <summary>
     /// If the player clicks on the tree, the tree will be cut down with power = 1
@@ -27,8 +27,9 @@ public class TreeCutManager : MonoBehaviour
     {
         power = Mathf.Max(power, durable) == 0 ? 1 : power;
         durable -= power;
-        if (durable == 0)
+        if (durable <= 0 && notCuted)
         {
+            notCuted = false;
             DropApple();
             StartCoroutine(TransparentThisGameObject());
         }
@@ -82,6 +83,7 @@ public class TreeCutManager : MonoBehaviour
     IEnumerator TransparentThisGameObject()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        gameObject.tag = "Untagged";
         while (spriteRenderer.color.a > 0)
         {
             spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, spriteRenderer.color.a - Time.deltaTime);

@@ -23,7 +23,7 @@ public class NPCGetItemManager : MonoBehaviour
         // if countTime is greater than cutDelayTime, and NPC is not moving, then set NPC to cut the cloest tree (auto)
         if (countTime >= cutDelayTime)
         {
-            if (!NPCmove.isMoving())
+            if (!NPCmove.isCut())
             {
                 countTime = 0;
                 CutClosetTree();
