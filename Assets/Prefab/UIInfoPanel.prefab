@@ -4863,6 +4863,7 @@ GameObject:
   - component: {fileID: 6336394239586395743}
   - component: {fileID: 6599485741544181818}
   - component: {fileID: 5772290725210299798}
+  - component: {fileID: 3716052852519879777}
   m_Layer: 5
   m_Name: BgUpgradeWindow(Black)
   m_TagString: Untagged
@@ -4929,6 +4930,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3716052852519879777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8242376790116143176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c29a2f389378a94d8181f86dc63c24c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8477819164728028201
 GameObject:
   m_ObjectHideFlags: 0
