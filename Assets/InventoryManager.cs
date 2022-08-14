@@ -55,7 +55,7 @@ public class InventoryManager : MonoBehaviour
     public void LoadInventory()
     {
         quantity[0] = SaveGameManager.instance.LoadGameInt("Apple");
-        quantity[1] = SaveGameManager.instance.LoadGameInt("Coal");
+        quantity[1] = SaveGameManager.instance.LoadGameInt("GoldenApple");
         UIManager.instance.SetQuantityText();
     }
 }

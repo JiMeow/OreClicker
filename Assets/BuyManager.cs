@@ -112,6 +112,8 @@ public class BuyManager : MonoBehaviour
                 quantity[0] -= 90;
             UIManager.instance.SetQuantityText();
             SpawnManager.instance.SetCanDropGoldenApple();
+            UIManager.instance.ShowNextUpgradeGoldenApple(0);
+
             SaveBuy("BuyGoldenAppleRate", "Apple", 90);
         }
     }

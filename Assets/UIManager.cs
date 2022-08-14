@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     GameObject[] UpgradeChestAutoCut;
+    [SerializeField]
+    GameObject[] UpgradeGoldenApple;
 
     private void Awake()
     {
@@ -54,14 +56,19 @@ public class UIManager : MonoBehaviour
 
     public void ShowNextUpgradeChestAutoCut(int nowIndex)
     {
-        if (nowIndex == 3)
-        {
-            return;
-        }
         for (int i = 0; i <= nowIndex; i++)
         {
             UpgradeChestAutoCut[i].SetActive(false);
         }
         UpgradeChestAutoCut[nowIndex + 1].SetActive(true);
+    }
+
+    public void ShowNextUpgradeGoldenApple(int nowIndex)
+    {
+        for (int i = 0; i <= nowIndex; i++)
+        {
+            UpgradeGoldenApple[i].SetActive(false);
+        }
+        UpgradeGoldenApple[nowIndex + 1].SetActive(true);
     }
 }
