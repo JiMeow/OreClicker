@@ -101,6 +101,22 @@ public class BuyManager : MonoBehaviour
     }
 
     /// <summary>
+    /// If the player has 90 of the apple, then subtract 90 from the quantity of the apple,
+    /// set all of next tree can drop golden apple
+    /// </summary>
+    public void BuyGoldenAppleRate(bool free = false)
+    {
+        if (quantity[0] >= 90 || free)
+        {
+            if (!free)
+                quantity[0] -= 90;
+            UIManager.instance.SetQuantityText();
+            SpawnManager.instance.SetCanDropGoldenApple();
+            SaveBuy("BuyGoldenAppleRate", "Apple", 90);
+        }
+    }
+
+    /// <summary>
     /// This function takes in a string for the item name, a string for the money type, and an int for
     /// the value of the item. then it adds the item to the player's inventory and subtracts the money (in save game)
     /// type
@@ -116,8 +132,8 @@ public class BuyManager : MonoBehaviour
     }
 
     /// <summary>
-    /// It loads the amount of items bought from the save file and then sets the NPC's speed, tree spawn
-    /// time, and cut delay time based on the amount of items bought
+    /// It loads the amount of items bought from the save file and then sets the all data
+    /// based on the amount of items bought
     /// </summary>
     private void LoadBuyItem()
     {
@@ -145,6 +161,10 @@ public class BuyManager : MonoBehaviour
         if (SaveGameManager.instance.LoadGameInt("BuyChestAutoCut1") > 0)
         {
             BuyChestAutoCut1(free: true);
+        }
+        if (SaveGameManager.instance.LoadGameInt("BuyGoldenAppleRate") > 0)
+        {
+            BuyGoldenAppleRate(free: true);
         }
     }
 }

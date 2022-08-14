@@ -7,6 +7,8 @@ public class SpawnManager : MonoBehaviour
     public static SpawnManager instance;
     [SerializeField]
     GameObject treePrefab;
+    public bool isCanDropGoldenApple;
+    public int goldenAppleDropRate;
     public int maxTreeInScene = 25;
     public float spawnTime;
     public float countTime;
@@ -22,6 +24,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
+        goldenAppleDropRate = 2;
         spawnTime = 5.0f;
     }
 
@@ -48,7 +51,13 @@ public class SpawnManager : MonoBehaviour
         float x = Random.Range(topleftx, bottomrightx);
         float y = Random.Range(toplefty, bottomrighty);
         Vector2 spawnPoint = new Vector2(x, y);
-        Instantiate(treePrefab, spawnPoint, Quaternion.identity);
+
+        GameObject newTree = Instantiate(treePrefab, spawnPoint, Quaternion.identity);
+        // if the tree must can drop golden apple, then set it to can drop golden apple
+        if (isCanDropGoldenApple)
+        {
+            newTree.GetComponent<TreeCutManager>().SetGoldenAppleRate(goldenAppleDropRate);
+        }
     }
 
     /// <summary>
@@ -58,5 +67,13 @@ public class SpawnManager : MonoBehaviour
     public void SetSpawnTimeDown(float percent)
     {
         spawnTime *= (1.0f - percent / 100f);
+    }
+
+    /// <summary>
+    /// This function sets the boolean variable isCanDropGoldenApple to true
+    /// </summary>
+    public void SetCanDropGoldenApple()
+    {
+        isCanDropGoldenApple = true;
     }
 }

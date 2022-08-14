@@ -9,9 +9,7 @@ TagManager:
   - NPC
   - Apple
   - UpgradeHide
-  - UpgradeLevel1
-  - UpgradeLevel3
-  - UpgradeLevel2
+  - GoldenApple
   layers:
   - Default
   - TransparentFX

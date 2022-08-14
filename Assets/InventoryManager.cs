@@ -20,7 +20,7 @@ public class InventoryManager : MonoBehaviour
     {
         NameToIndex = new Dictionary<string, int>();
         NameToIndex.Add("Apple", 0);
-        NameToIndex.Add("Coal", 1);
+        NameToIndex.Add("GoldenApple", 1);
         LoadInventory();
     }
 

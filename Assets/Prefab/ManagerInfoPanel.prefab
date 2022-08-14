@@ -169,6 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treePrefab: {fileID: 0}
+  isCanDropGoldenApple: 0
+  goldenAppleDropRate: 0
   maxTreeInScene: 25
   spawnTime: 0
   countTime: 0

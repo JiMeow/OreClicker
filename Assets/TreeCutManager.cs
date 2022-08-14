@@ -6,7 +6,10 @@ public class TreeCutManager : MonoBehaviour
 {
     [SerializeField]
     GameObject applePrefab;
+    [SerializeField]
+    GameObject goldenApplePrefab;
     public int durable;
+    int dropGoldenAppleRate;
     bool notCuted = true;
 
     /// <summary>
@@ -68,12 +71,21 @@ public class TreeCutManager : MonoBehaviour
     }
 
     /// <summary>
-    /// It spawns an apple at the tree's position.
+    /// It spawns an apple at the tree's position. 
+    /// drop the apple with a random chance of dropping a golden apple
     /// </summary>
     private void DropApple()
     {
         Vector2 spawnPoint = new Vector2(transform.position.x, transform.position.y);
-        Instantiate(applePrefab, spawnPoint, Quaternion.identity);
+        int randomGoldApple = Random.Range(0, 100);
+        if (randomGoldApple < dropGoldenAppleRate)
+        {
+            Instantiate(goldenApplePrefab, spawnPoint, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(applePrefab, spawnPoint, Quaternion.identity);
+        }
     }
 
     /// <summary>
@@ -91,4 +103,14 @@ public class TreeCutManager : MonoBehaviour
         }
         Destroy(gameObject);
     }
+
+    /// <summary>
+    /// This function sets the drop rate of golden apples
+    /// </summary>
+    /// <param name="rate">The rate at which the golden apple will drop.</param>
+    public void SetGoldenAppleRate(int rate)
+    {
+        dropGoldenAppleRate = rate;
+    }
+
 }
