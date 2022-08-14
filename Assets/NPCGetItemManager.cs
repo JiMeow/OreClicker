@@ -25,8 +25,10 @@ public class NPCGetItemManager : MonoBehaviour
         {
             if (!NPCmove.isCut())
             {
-                countTime = 0;
-                CutClosetTree();
+                if (CutClosetTree())
+                {
+                    countTime = 0;
+                }
             }
         }
     }
@@ -44,13 +46,13 @@ public class NPCGetItemManager : MonoBehaviour
     /// <summary>
     /// Find the closest tree to the player, and move the player to that tree and cut it down when at the tree
     /// </summary>
-    private void CutClosetTree()
+    private bool CutClosetTree()
     {
         GameObject[] trees = GameObject.FindGameObjectsWithTag("Tree");
         GameObject minimumDistanceTree = null;
         // have 1 prototype tree in scene for instantiate so ignore the this tree
         if (trees.Length == 1)
-            return;
+            return false;
         float minimumDistance = float.MaxValue;
         foreach (GameObject tree in trees)
         {
@@ -68,7 +70,9 @@ public class NPCGetItemManager : MonoBehaviour
             Vector3 treePosition = minimumDistanceTree.transform.position;
             treePosition.y -= 0.44f; // from leaf to stem
             NPCmove.MoveToPoint(treePosition, whenStopCutTree: true);
+            return true;
         }
+        return false;
     }
 
     /// <summary>

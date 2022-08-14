@@ -10,6 +10,7 @@ public class BuyManager : MonoBehaviour
     private void Start()
     {
         quantity = InventoryManager.instance.GetQuantity();
+        LoadBuyItem();
     }
 
     /// <summary>
@@ -22,6 +23,8 @@ public class BuyManager : MonoBehaviour
             quantity[0] -= 4;
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCMoveAndAnimation>().SetSpeedUp(50);
+
+            Buy("BuyChestSpeed50", "Apple", 4);
         }
     }
 
@@ -35,6 +38,8 @@ public class BuyManager : MonoBehaviour
             quantity[0] -= 10;
             UIManager.instance.SetQuantityText();
             SpawnManager.instance.SetSpawnTimeDown(50);
+
+            Buy("BuyTreeSpawn50", "Apple", 10);
         }
     }
 
@@ -49,6 +54,8 @@ public class BuyManager : MonoBehaviour
             quantity[0] -= 25;
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(4);
+
+            Buy("BuyChestAutoCut4", "Apple", 25);
         }
     }
 
@@ -63,6 +70,8 @@ public class BuyManager : MonoBehaviour
             quantity[0] -= 50;
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(2);
+
+            Buy("BuyChestAutoCut2", "Apple", 50);
         }
     }
 
@@ -76,6 +85,43 @@ public class BuyManager : MonoBehaviour
         {
             quantity[0] -= 75;
             UIManager.instance.SetQuantityText();
+            NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(1);
+
+            Buy("BuyChestAutoCut1", "Apple", 75);
+        }
+    }
+
+    private void Buy(string itemname, string moneytype, int value)
+    {
+        SaveGameManager.instance.SaveGameInt(itemname, valueInt: 1, add: true);
+        SaveGameManager.instance.SaveGameInt(moneytype, valueInt: -value, add: true);
+    }
+
+    private void LoadBuyItem()
+    {
+        int amoutOfBuy;
+        amoutOfBuy = SaveGameManager.instance.LoadGameInt("BuyChestSpeed50");
+        while (amoutOfBuy > 0)
+        {
+            NPC.GetComponent<NPCMoveAndAnimation>().SetSpeedUp(50);
+            amoutOfBuy--;
+        }
+        amoutOfBuy = SaveGameManager.instance.LoadGameInt("BuyTreeSpawn50");
+        while (amoutOfBuy > 0)
+        {
+            SpawnManager.instance.SetSpawnTimeDown(50);
+            amoutOfBuy--;
+        }
+        if (SaveGameManager.instance.LoadGameInt("BuyChestAutoCut4") > 0)
+        {
+            NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(4);
+        }
+        if (SaveGameManager.instance.LoadGameInt("BuyChestAutoCut2") > 0)
+        {
+            NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(2);
+        }
+        if (SaveGameManager.instance.LoadGameInt("BuyChestAutoCut1") > 0)
+        {
             NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(1);
         }
     }

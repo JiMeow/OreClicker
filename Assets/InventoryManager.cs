@@ -21,8 +21,7 @@ public class InventoryManager : MonoBehaviour
         NameToIndex = new Dictionary<string, int>();
         NameToIndex.Add("Apple", 0);
         NameToIndex.Add("Coal", 1);
-        quantity[0] = 0;
-        quantity[1] = 0;
+        LoadInventory();
     }
 
     /// <summary>
@@ -34,6 +33,10 @@ public class InventoryManager : MonoBehaviour
     {
         int index = NameToIndex[item.tag];
         quantity[index]++;
+
+        // save the quantity of the item to playerprefs
+        SaveGameManager.instance.SaveGameInt(item.tag, valueInt: 1, add: true);
+
         UIManager.instance.SetQuantityText();
     }
 
@@ -47,5 +50,12 @@ public class InventoryManager : MonoBehaviour
     public int[] GetQuantity()
     {
         return quantity;
+    }
+
+    public void LoadInventory()
+    {
+        quantity[0] = SaveGameManager.instance.LoadGameInt("Apple");
+        quantity[1] = SaveGameManager.instance.LoadGameInt("Coal");
+        UIManager.instance.SetQuantityText();
     }
 }

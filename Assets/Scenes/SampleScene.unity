@@ -1005,6 +1005,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1621122303231745292, guid: a6fc7dc32f105b44ea0b0fe85ef44d43, type: 3}
+      propertyPath: NpcSpeed
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 3310128802333749828, guid: a6fc7dc32f105b44ea0b0fe85ef44d43, type: 3}
       propertyPath: QuantitiesText.Array.size
       value: 1
