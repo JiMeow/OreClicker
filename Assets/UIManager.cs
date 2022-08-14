@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject WindowUpgradesUI;
 
+    [SerializeField]
+    GameObject[] UpgradeChestAutoCut;
+
     private void Awake()
     {
         instance = this;
@@ -47,5 +50,18 @@ public class UIManager : MonoBehaviour
         {
             WindowUpgradesUI.SetActive(true);
         }
+    }
+
+    public void ShowNextUpgradeChestAutoCut(int nowIndex)
+    {
+        if (nowIndex == 3)
+        {
+            return;
+        }
+        for (int i = 0; i <= nowIndex; i++)
+        {
+            UpgradeChestAutoCut[i].SetActive(false);
+        }
+        UpgradeChestAutoCut[nowIndex + 1].SetActive(true);
     }
 }

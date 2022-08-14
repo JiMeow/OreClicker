@@ -7,6 +7,7 @@ public class SpawnManager : MonoBehaviour
     public static SpawnManager instance;
     [SerializeField]
     GameObject treePrefab;
+    public int maxTreeInScene = 25;
     public float spawnTime;
     public float countTime;
     float topleftx = -2.65f;
@@ -26,11 +27,15 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
+        countTime += Time.deltaTime;
         // every spawnTime seconds, spawn a tree
-        if (Time.time - countTime > spawnTime)
+        if (countTime > spawnTime)
         {
-            SpawnTree();
-            countTime += spawnTime;
+            if (GameObject.FindGameObjectsWithTag("Tree").Length < maxTreeInScene)
+            {
+                SpawnTree();
+                countTime = 0;
+            }
         }
     }
 

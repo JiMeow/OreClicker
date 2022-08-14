@@ -8,6 +8,10 @@ TagManager:
   - Tree
   - NPC
   - Apple
+  - UpgradeHide
+  - UpgradeLevel1
+  - UpgradeLevel3
+  - UpgradeLevel2
   layers:
   - Default
   - TransparentFX

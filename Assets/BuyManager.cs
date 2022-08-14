@@ -17,11 +17,12 @@ public class BuyManager : MonoBehaviour
     /// <summary>
     /// if player buy increase chest speed by 50 and player have apple more than 4, then decrease apple quantity by 4 and increase chest speed by 50 percents
     /// </summary>
-    public void BuyChestSpeed50()
+    public void BuyChestSpeed50(bool free = false)
     {
-        if (quantity[0] >= 4)
+        if (quantity[0] >= 4 || free)
         {
-            quantity[0] -= 4;
+            if (!free)
+                quantity[0] -= 4;
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCMoveAndAnimation>().SetSpeedUp(50);
 
@@ -32,11 +33,12 @@ public class BuyManager : MonoBehaviour
     /// <summary>
     /// if player buy increase chest speed by 50 and player have apple more than 10, then decrease apple quantity by 10 and increase chest speed by 50 percents
     /// </summary>
-    public void BuyTreeSpawn50()
+    public void BuyTreeSpawn50(bool free = false)
     {
-        if (quantity[0] >= 10)
+        if (quantity[0] >= 10 || free)
         {
-            quantity[0] -= 10;
+            if (!free)
+                quantity[0] -= 10;
             UIManager.instance.SetQuantityText();
             SpawnManager.instance.SetSpawnTimeDown(50);
 
@@ -48,13 +50,15 @@ public class BuyManager : MonoBehaviour
     /// If the player has 25 of the apple, then subtract 25 from the quantity of the apple,
     /// update the UI, and set the NPC's cut delay time to 4
     /// </summary>
-    public void BuyChestAutoCut4()
+    public void BuyChestAutoCut4(bool free = false)
     {
-        if (quantity[0] >= 25)
+        if (quantity[0] >= 25 || free)
         {
-            quantity[0] -= 25;
+            if (!free)
+                quantity[0] -= 25;
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(4);
+            UIManager.instance.ShowNextUpgradeChestAutoCut(0);
 
             SaveBuy("BuyChestAutoCut4", "Apple", 25);
         }
@@ -64,13 +68,15 @@ public class BuyManager : MonoBehaviour
     /// If the player has 50 of the apple, then subtract 50 from the quantity of the apple,
     /// update the UI, and set the NPC's cut delay time to 2
     /// </summary>
-    public void BuyChestAutoCut2()
+    public void BuyChestAutoCut2(bool free = false)
     {
-        if (quantity[0] >= 50)
+        if (quantity[0] >= 50 || free)
         {
-            quantity[0] -= 50;
+            if (!free)
+                quantity[0] -= 50;
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(2);
+            UIManager.instance.ShowNextUpgradeChestAutoCut(1);
 
             SaveBuy("BuyChestAutoCut2", "Apple", 50);
         }
@@ -80,13 +86,15 @@ public class BuyManager : MonoBehaviour
     /// If the player has 75 of the apple, then subtract 75 from the quantity of the apple,
     /// update the UI, and set the NPC's cut delay time to 1
     /// </summary>
-    public void BuyChestAutoCut1()
+    public void BuyChestAutoCut1(bool free = false)
     {
-        if (quantity[0] >= 75)
+        if (quantity[0] >= 75 || free)
         {
-            quantity[0] -= 75;
+            if (!free)
+                quantity[0] -= 75;
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(1);
+            UIManager.instance.ShowNextUpgradeChestAutoCut(2);
 
             SaveBuy("BuyChestAutoCut1", "Apple", 75);
         }
@@ -117,26 +125,26 @@ public class BuyManager : MonoBehaviour
         amoutOfBuy = SaveGameManager.instance.LoadGameInt("BuyChestSpeed50");
         while (amoutOfBuy > 0)
         {
-            NPC.GetComponent<NPCMoveAndAnimation>().SetSpeedUp(50);
+            BuyChestSpeed50(free: true);
             amoutOfBuy--;
         }
         amoutOfBuy = SaveGameManager.instance.LoadGameInt("BuyTreeSpawn50");
         while (amoutOfBuy > 0)
         {
-            SpawnManager.instance.SetSpawnTimeDown(50);
+            BuyTreeSpawn50(free: true);
             amoutOfBuy--;
         }
         if (SaveGameManager.instance.LoadGameInt("BuyChestAutoCut4") > 0)
         {
-            NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(4);
+            BuyChestAutoCut4(free: true);
         }
         if (SaveGameManager.instance.LoadGameInt("BuyChestAutoCut2") > 0)
         {
-            NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(2);
+            BuyChestAutoCut2(free: true);
         }
         if (SaveGameManager.instance.LoadGameInt("BuyChestAutoCut1") > 0)
         {
-            NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(1);
+            BuyChestAutoCut1(free: true);
         }
     }
 }
