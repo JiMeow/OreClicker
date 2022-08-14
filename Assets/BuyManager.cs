@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BuyManager : MonoBehaviour
 {
+    // [0] -> apple, [1] -> coal
     int[] quantity = new int[5];
     [SerializeField]
     GameObject NPC;
@@ -24,7 +25,7 @@ public class BuyManager : MonoBehaviour
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCMoveAndAnimation>().SetSpeedUp(50);
 
-            Buy("BuyChestSpeed50", "Apple", 4);
+            SaveBuy("BuyChestSpeed50", "Apple", 4);
         }
     }
 
@@ -39,7 +40,7 @@ public class BuyManager : MonoBehaviour
             UIManager.instance.SetQuantityText();
             SpawnManager.instance.SetSpawnTimeDown(50);
 
-            Buy("BuyTreeSpawn50", "Apple", 10);
+            SaveBuy("BuyTreeSpawn50", "Apple", 10);
         }
     }
 
@@ -55,7 +56,7 @@ public class BuyManager : MonoBehaviour
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(4);
 
-            Buy("BuyChestAutoCut4", "Apple", 25);
+            SaveBuy("BuyChestAutoCut4", "Apple", 25);
         }
     }
 
@@ -71,7 +72,7 @@ public class BuyManager : MonoBehaviour
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(2);
 
-            Buy("BuyChestAutoCut2", "Apple", 50);
+            SaveBuy("BuyChestAutoCut2", "Apple", 50);
         }
     }
 
@@ -87,16 +88,29 @@ public class BuyManager : MonoBehaviour
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(1);
 
-            Buy("BuyChestAutoCut1", "Apple", 75);
+            SaveBuy("BuyChestAutoCut1", "Apple", 75);
         }
     }
 
-    private void Buy(string itemname, string moneytype, int value)
+    /// <summary>
+    /// This function takes in a string for the item name, a string for the money type, and an int for
+    /// the value of the item. then it adds the item to the player's inventory and subtracts the money (in save game)
+    /// type
+    /// </summary>
+    /// <param name="itemname">The name of the item you want to buy.</param>
+    /// <param name="moneytype">The name of the currency you want to use.</param>
+    /// <param name="value">The amount of money that will be deducted from the player's
+    /// moneytype.</param>
+    private void SaveBuy(string itemname, string moneytype, int value)
     {
         SaveGameManager.instance.SaveGameInt(itemname, valueInt: 1, add: true);
         SaveGameManager.instance.SaveGameInt(moneytype, valueInt: -value, add: true);
     }
 
+    /// <summary>
+    /// It loads the amount of items bought from the save file and then sets the NPC's speed, tree spawn
+    /// time, and cut delay time based on the amount of items bought
+    /// </summary>
     private void LoadBuyItem()
     {
         int amoutOfBuy;
