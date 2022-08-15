@@ -117,7 +117,7 @@ public class NPCTreeMoveAndAnimation : MonoBehaviour
     }
 
     /// <summary>
-    /// Find the closest tree to the player, and cut it down with power = 3
+    /// Find the closest tree to the player, and cut it down with power = 3, (for auto destroy after hitting)
     /// </summary>
     private void CutClosetTree()
     {

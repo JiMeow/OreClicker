@@ -13,6 +13,11 @@ public class SwitchSceneManager : MonoBehaviour
     [SerializeField]
     Scene scene;
 
+
+    /// <summary>
+    /// "If the scene is grass, move the camera to the stone scene, and if the scene is stone, move the
+    /// camera to the grass scene." - not complete
+    /// </summary>
     public void SwitchScene()
     {
         switch (scene)
@@ -28,6 +33,11 @@ public class SwitchSceneManager : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// It moves the main camera to the position specified by the parameter
+    /// </summary>
+    /// <param name="positionX">The x position of the camera.</param>
     IEnumerator MoveMainCamera(float positionX)
     {
         Camera main = Camera.main;

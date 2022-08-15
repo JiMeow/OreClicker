@@ -48,7 +48,7 @@ public class BuyManager : MonoBehaviour
             {
                 return;
             }
-            /**/
+            /*Check complete*/
             if (!loaded)
             {
                 quantity[0] -= 5;
@@ -87,7 +87,7 @@ public class BuyManager : MonoBehaviour
             {
                 return;
             }
-            /**/
+            /*Check complete*/
             if (!loaded)
             {
                 quantity[0] -= 10;

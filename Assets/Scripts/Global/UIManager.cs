@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
-    [SerializeField]
 
+    [Header("Quantity")]
+    [SerializeField]
     GameObject[] QuantitiesText;
     [SerializeField]
     GameObject[] QuantitiesPhoto;
@@ -15,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject WindowUpgradesUI;
 
+    [Header("Upgrades scene1")]
     [SerializeField]
     GameObject[] UpgradeChestAutoCut;
     [SerializeField]
@@ -97,6 +99,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// It takes an integer as an argument and sets the active state of the game objects in the array to
+    /// false, then sets the active state of the next game object in the array to true
+    /// </summary>
+    /// <param name="nowIndex">The current index of the upgrade chest.</param>
     public void ShowNextUpgradeChestAutoCut(int nowIndex)
     {
         for (int i = 0; i <= nowIndex; i++)
@@ -106,6 +113,11 @@ public class UIManager : MonoBehaviour
         UpgradeChestAutoCut[nowIndex + 1].SetActive(true);
     }
 
+    /// <summary>
+    /// It takes an integer as an argument and sets the active state of the game objects in the array to
+    /// false, then sets the active state of the next game object in the array to true
+    /// </summary>
+    /// <param name="nowIndex">The current index of the upgrade chest.</param>
     public void ShowNextUpgradeGoldenApple(int nowIndex)
     {
         for (int i = 0; i <= nowIndex; i++)

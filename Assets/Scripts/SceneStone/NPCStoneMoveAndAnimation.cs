@@ -70,7 +70,7 @@ public class NPCStoneMoveAndAnimation : MonoBehaviour
     /// <param name="Vector2">The position you want the object to move to.</param>
     public void MoveToPoint(Vector2 worldPosition, bool whenStopHitStone = false)
     {
-        // if not go for cutting
+        // if not go for hitting
         if (!isMoving)
         {
             vectorToGo = worldPosition - new Vector2(transform.position.x, transform.position.y);
@@ -106,7 +106,7 @@ public class NPCStoneMoveAndAnimation : MonoBehaviour
     }
 
     /// <summary>
-    /// If chest is cutting tree, then return true else return false
+    /// If chest is hitting stone, then return true else return false
     /// </summary>
     /// <returns>
     /// A boolean value.
@@ -117,34 +117,32 @@ public class NPCStoneMoveAndAnimation : MonoBehaviour
     }
 
     /// <summary>
-    /// Find the closest tree to the player, and cut it down with power = 3
+    /// Find the closest stone to the player, and hit it with power = 5, (for auto destroy after hitting)
     /// </summary>
     private void HitClosetStone()
     {
-        GameObject[] trees = GameObject.FindGameObjectsWithTag("Stone");
-        // have 1 prototype tree in scene for instantiate so ignore the this tree
-        if (trees.Length == 1)
+        GameObject[] stones = GameObject.FindGameObjectsWithTag("Stone");
+        // have 1 prototype stone in scene for instantiate so ignore the this stone
+        if (stones.Length == 1)
             return;
-        GameObject minimumDistanceTree = null;
+        GameObject minimumDistanceStone = null;
         float minimumDistance = float.MaxValue;
-        foreach (GameObject tree in trees)
+        foreach (GameObject stone in stones)
         {
-            // have 1 prototype tree in scene for instantiate so ignore the this tree
-            if (tree.transform.position.x < -5) continue;
+            // have 1 prototype stone in scene for instantiate so ignore the this stone
+            if (stone.transform.position.x < -5) continue;
 
-            Vector3 treePosition = tree.transform.position;
-            treePosition.y -= 0.44f;
-
-            float distance = EuclideanDistance(treePosition, transform.position);
+            Vector3 stonePosition = stone.transform.position;
+            float distance = EuclideanDistance(stonePosition, transform.position);
             if (distance < minimumDistance)
             {
                 minimumDistance = distance;
-                minimumDistanceTree = tree;
+                minimumDistanceStone = stone;
             }
         }
-        if (minimumDistanceTree != null)
+        if (minimumDistanceStone != null)
         {
-            minimumDistanceTree.GetComponent<StoneBrickManager>().HitStone(1);
+            minimumDistanceStone.GetComponent<StoneBrickManager>().HitStone(5);
             whenStopHitStone = false;
         }
         isMoving = false;

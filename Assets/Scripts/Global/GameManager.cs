@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private void Awake()
     {
+        // if not this version delete save
         float version = PlayerPrefs.GetFloat("version", 0);
         if (version != 1)
         {
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
+        // if press escape, then quit game
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();

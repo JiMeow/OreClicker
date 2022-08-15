@@ -20,7 +20,7 @@ public class NPCStoneGetItemManager : MonoBehaviour
     {
         // increase countTime by time in frame
         countTime += Time.deltaTime;
-        // if countTime is greater than cutDelayTime, and NPC is not moving, then set NPC to cut the cloest stone (auto)
+        // if countTime is greater than hitDelayTime, and NPC is not moving, then set NPC to cut the closest stone (auto)
         if (countTime >= hitDelayTime)
         {
             if (!NPCmove.Moving())
@@ -46,7 +46,7 @@ public class NPCStoneGetItemManager : MonoBehaviour
 
 
     /// <summary>
-    /// Find the closest stone to the player, and move the player to that stone and cut it down when at the stone
+    /// Find the closest stone to the player, and move the player to that stone and hit it when at the stone
     /// </summary>
     private bool HitClosetStone()
     {

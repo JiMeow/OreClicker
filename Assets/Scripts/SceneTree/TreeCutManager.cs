@@ -25,7 +25,7 @@ public class TreeCutManager : MonoBehaviour
     /// set to the old power then reduce durable by power if durable is 0 drop the apple then tranparent the tree
     /// else shake tree
     /// </summary>
-    /// <param name="power">The power of the axe.</param>
+    /// <param name="power">The power of click.</param>
     public void CutTree(int power)
     {
         power = Mathf.Max(power, durable) == 0 ? 1 : power;
@@ -52,7 +52,7 @@ public class TreeCutManager : MonoBehaviour
     }
 
     /// <summary>
-    /// shake the tree by move tree by little distance then back to normal position for a given time
+    /// shake by object by little distance then back to normal position for a given time
     /// </summary>
     /// <param name="shaketime">The amount of time the camera will shake for.</param>
     IEnumerator Shake(float shaketime)

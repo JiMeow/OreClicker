@@ -5,6 +5,8 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public static SpawnManager instance;
+
+    [Header("Spawn Tree Settings")]
     [SerializeField]
     GameObject treePrefab;
     public bool isCanDropGoldenApple;
@@ -17,6 +19,7 @@ public class SpawnManager : MonoBehaviour
     float bottomrightxTree = 2.75f;
     float bottomrightyTree = -1.0f;
 
+    [Header("Spawn Stone Settings")]
     [SerializeField]
     GameObject stonePrefab;
     public int maxStoneInScene = 25;
@@ -81,6 +84,10 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// It creates a random position within the bounds of the map, and then spawns a stone at that
+    /// position
+    /// </summary>
     private void SpawnStone()
     {
         float x = Random.Range(topleftxStone, bottomrightxStone);
@@ -99,6 +106,10 @@ public class SpawnManager : MonoBehaviour
         spawnTreeTime *= (1.0f - percent / 100f);
     }
 
+    /// <summary>
+    /// It takes a float value (percent) then decrease the spawncooldown of the tree by that percent
+    /// </summary>
+    /// <param name="percent">The percentage of the current spawn time to decrease by.</param>
     public void SetStoneSpawnTimeDown(float percent)
     {
         spawnStoneTime *= (1.0f - percent / 100f);

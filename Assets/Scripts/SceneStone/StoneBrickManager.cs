@@ -10,11 +10,20 @@ public class StoneBrickManager : MonoBehaviour
     public float dropRate;
     bool notDestroyed = true;
 
+    /// <summary>
+    /// When the mouse is clicked, the function HitStone is called with the parameter 1
+    /// </summary>
     private void OnMouseDown()
     {
         HitStone(1);
     }
 
+    /// <summary>
+    /// If the power is equal 0 or the durable equal to 0, then the power is set to 1, otherwise the power is
+    /// set to the old power then reduce durable by power if durable is 0 drop item then tranparent the stone
+    /// else shake 
+    /// </summary>
+    /// <param name="power">The power of click.</param>
     public void HitStone(int power)
     {
         power = Mathf.Max(power, durable) == 0 ? 1 : power;
@@ -31,12 +40,19 @@ public class StoneBrickManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// start the coroutine to make the object shake
+    /// </summary>
     private void ShakeObject()
     {
         float shakeTime = 0.05f;
         StartCoroutine(Shake(shakeTime));
     }
 
+    /// <summary>
+    /// shake by object by little distance then back to normal position for a given time
+    /// </summary>
+    /// <param name="shaketime">The amount of time the camera will shake for.</param>
     IEnumerator Shake(float shaketime)
     {
         Vector3 originalPosition = transform.position;
@@ -52,6 +68,9 @@ public class StoneBrickManager : MonoBehaviour
         transform.position = originalPosition;
     }
 
+    /// <summary>
+    /// It spawns an Item gameobject position. (StoneBar)
+    /// </summary>
     private void DropItem()
     {
         Vector2 spawnPoint = new Vector2(transform.position.x, transform.position.y);
@@ -62,6 +81,9 @@ public class StoneBrickManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This function makes the game object transparent and then destroys it
+    /// </summary>
     IEnumerator TransparentThisGameObject()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();

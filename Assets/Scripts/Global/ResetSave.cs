@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResetSave : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // for reset save (Debug)
     void Start()
     {
         PlayerPrefs.DeleteAll();
