@@ -17,11 +17,11 @@ public class BuyManager : MonoBehaviour
     /// <summary>
     /// if player buy increase chest speed by 50 and player have apple more than 4, then decrease apple quantity by 4 and increase chest speed by 50 percents
     /// </summary>
-    public void BuyChestSpeed50(bool free = false)
+    public void BuyChestSpeed50(bool loaded = false)
     {
-        if (quantity[0] >= 4 || free)
+        if (quantity[0] >= 4 || loaded)
         {
-            if (!free)
+            if (!loaded)
             {
                 quantity[0] -= 4;
                 SaveBuy("BuyChestSpeed50", "Apple", 4);
@@ -34,11 +34,11 @@ public class BuyManager : MonoBehaviour
     /// <summary>
     /// if player buy increase chest speed by 50 and player have apple more than 10, then decrease apple quantity by 10 and increase chest speed by 50 percents
     /// </summary>
-    public void BuyTreeSpawn50(bool free = false)
+    public void BuyTreeSpawn50(bool loaded = false)
     {
-        if (quantity[0] >= 10 || free)
+        if (quantity[0] >= 10 || loaded)
         {
-            if (!free)
+            if (!loaded)
             {
                 quantity[0] -= 10;
                 SaveBuy("BuyTreeSpawn50", "Apple", 10);
@@ -52,11 +52,11 @@ public class BuyManager : MonoBehaviour
     /// If the player has 25 of the apple, then subtract 25 from the quantity of the apple,
     /// update the UI, and set the NPC's cut delay time to 4
     /// </summary>
-    public void BuyChestAutoCut4(bool free = false)
+    public void BuyChestAutoCut4(bool loaded = false)
     {
-        if (quantity[0] >= 25 || free)
+        if (quantity[0] >= 25 || loaded)
         {
-            if (!free)
+            if (!loaded)
             {
                 quantity[0] -= 25;
                 SaveBuy("BuyChestAutoCut4", "Apple", 25);
@@ -71,11 +71,11 @@ public class BuyManager : MonoBehaviour
     /// If the player has 50 of the apple, then subtract 50 from the quantity of the apple,
     /// update the UI, and set the NPC's cut delay time to 2
     /// </summary>
-    public void BuyChestAutoCut2(bool free = false)
+    public void BuyChestAutoCut2(bool loaded = false)
     {
-        if (quantity[0] >= 50 || free)
+        if (quantity[0] >= 50 || loaded)
         {
-            if (!free)
+            if (!loaded)
             {
                 quantity[0] -= 50;
                 SaveBuy("BuyChestAutoCut2", "Apple", 50);
@@ -90,11 +90,11 @@ public class BuyManager : MonoBehaviour
     /// If the player has 75 of the apple, then subtract 75 from the quantity of the apple,
     /// update the UI, and set the NPC's cut delay time to 1
     /// </summary>
-    public void BuyChestAutoCut1(bool free = false)
+    public void BuyChestAutoCut1(bool loaded = false)
     {
-        if (quantity[0] >= 75 || free)
+        if (quantity[0] >= 75 || loaded)
         {
-            if (!free)
+            if (!loaded)
             {
                 quantity[0] -= 75;
                 SaveBuy("BuyChestAutoCut1", "Apple", 75);
@@ -109,11 +109,11 @@ public class BuyManager : MonoBehaviour
     /// If the player has 90 of the apple, then subtract 90 from the quantity of the apple,
     /// set all of next tree can drop golden apple
     /// </summary>
-    public void BuyGoldenAppleRate(bool free = false)
+    public void BuyGoldenAppleRate(bool loaded = false)
     {
-        if (quantity[0] >= 90 || free)
+        if (quantity[0] >= 90 || loaded)
         {
-            if (!free)
+            if (!loaded)
             {
                 quantity[0] -= 90;
                 SaveBuy("BuyGoldenAppleRate", "Apple", 90);
@@ -149,30 +149,30 @@ public class BuyManager : MonoBehaviour
         amoutOfBuy = SaveGameManager.instance.LoadGameInt("BuyChestSpeed50");
         while (amoutOfBuy > 0)
         {
-            BuyChestSpeed50(free: true);
+            BuyChestSpeed50(loaded: true);
             amoutOfBuy--;
         }
         amoutOfBuy = SaveGameManager.instance.LoadGameInt("BuyTreeSpawn50");
         while (amoutOfBuy > 0)
         {
-            BuyTreeSpawn50(free: true);
+            BuyTreeSpawn50(loaded: true);
             amoutOfBuy--;
         }
         if (SaveGameManager.instance.LoadGameInt("BuyChestAutoCut4") > 0)
         {
-            BuyChestAutoCut4(free: true);
+            BuyChestAutoCut4(loaded: true);
         }
         if (SaveGameManager.instance.LoadGameInt("BuyChestAutoCut2") > 0)
         {
-            BuyChestAutoCut2(free: true);
+            BuyChestAutoCut2(loaded: true);
         }
         if (SaveGameManager.instance.LoadGameInt("BuyChestAutoCut1") > 0)
         {
-            BuyChestAutoCut1(free: true);
+            BuyChestAutoCut1(loaded: true);
         }
         if (SaveGameManager.instance.LoadGameInt("BuyGoldenAppleRate") > 0)
         {
-            BuyGoldenAppleRate(free: true);
+            BuyGoldenAppleRate(loaded: true);
         }
     }
 }
