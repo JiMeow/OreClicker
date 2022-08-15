@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour
     GameObject[] UpgradeChestAutoCut;
     [SerializeField]
     GameObject[] UpgradeGoldenApple;
+    [SerializeField]
+    GameObject[] UpgradeGoNextStage;
 
     bool isScaleUIPhoto;
 
@@ -125,5 +127,19 @@ public class UIManager : MonoBehaviour
             UpgradeGoldenApple[i].SetActive(false);
         }
         UpgradeGoldenApple[nowIndex + 1].SetActive(true);
+    }
+
+    /// <summary>
+    /// It takes an integer as an argument and sets the active state of the game objects in the array to
+    /// false, then sets the active state of the next game object in the array to true
+    /// </summary>
+    /// <param name="nowIndex">The current index of the upgrade chest.</param>
+    public void ShowNextUpgradeGoNextStage(int nowIndex)
+    {
+        for (int i = 0; i <= nowIndex; i++)
+        {
+            UpgradeGoNextStage[i].SetActive(false);
+        }
+        UpgradeGoNextStage[nowIndex + 1].SetActive(true);
     }
 }

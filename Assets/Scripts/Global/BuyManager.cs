@@ -10,10 +10,12 @@ public class BuyManager : MonoBehaviour
     [SerializeField]
     GameObject NPC;
 
+    /* should at UIManager */
     [SerializeField]
     GameObject[] chestSpeed50LevelScales;
     [SerializeField]
     GameObject[] treeSpawn50LevelScales;
+    /* should at UIManager */
     private void Start()
     {
         quantity = InventoryManager.instance.GetQuantity();
@@ -28,6 +30,7 @@ public class BuyManager : MonoBehaviour
         if (quantity[0] >= 5 || loaded)
         {
             /* Checking if scale is not max or if it will max set text to MAX and -. */
+            /* should at UIManager */
             bool complete = false;
             for (int i = 0; i < chestSpeed50LevelScales.Length - 2; i++)
             {
@@ -48,6 +51,7 @@ public class BuyManager : MonoBehaviour
             {
                 return;
             }
+            /* should at UIManager */
             /*Check complete*/
             if (!loaded)
             {
@@ -67,6 +71,7 @@ public class BuyManager : MonoBehaviour
         if (quantity[0] >= 10 || loaded)
         {
             /* Checking if scale is not max or if it will max set text to MAX and -. */
+            /* should at UIManager */
             bool complete = false;
             for (int i = 0; i < treeSpawn50LevelScales.Length - 2; i++)
             {
@@ -87,6 +92,7 @@ public class BuyManager : MonoBehaviour
             {
                 return;
             }
+            /* should at UIManager */
             /*Check complete*/
             if (!loaded)
             {
@@ -174,6 +180,20 @@ public class BuyManager : MonoBehaviour
         }
     }
 
+    public void BuyGoNextStage(bool loaded = false)
+    {
+        if (quantity[1] >= 5 || loaded)
+        {
+            if (!loaded)
+            {
+                quantity[1] -= 5;
+                SaveBuy("BuyGoNextStage", "GoldenApple", 100);
+            }
+            UIManager.instance.SetQuantityText();
+            UIManager.instance.ShowNextUpgradeGoNextStage(0);
+        }
+    }
+
     /// <summary>
     /// This function takes in a string for the item name, a string for the money type, and an int for
     /// the value of the item. then it adds the item to the player's inventory and subtracts the money (in save game)
@@ -223,6 +243,10 @@ public class BuyManager : MonoBehaviour
         if (SaveGameManager.instance.LoadGameInt("BuyGoldenAppleRate") > 0)
         {
             BuyGoldenAppleRate(loaded: true);
+        }
+        if (SaveGameManager.instance.LoadGameInt("BuyGoNextStage") > 0)
+        {
+            BuyGoNextStage(loaded: true);
         }
     }
 }

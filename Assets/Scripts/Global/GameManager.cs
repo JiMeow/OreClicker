@@ -6,12 +6,13 @@ public class GameManager : MonoBehaviour
 {
     private void Awake()
     {
+        float nowVersion = 2;
         // if not this version delete save
         float version = PlayerPrefs.GetFloat("version", 0);
-        if (version != 1)
+        if (version != nowVersion)
         {
             PlayerPrefs.DeleteAll();
-            PlayerPrefs.SetFloat("version", 1);
+            PlayerPrefs.SetFloat("version", nowVersion);
         }
     }
     void Update()
