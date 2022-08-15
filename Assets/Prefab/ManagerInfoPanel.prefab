@@ -88,6 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71a8855b31cf0145b5b1bdc98544bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quantity: 0000000000000000000000000000000000000000
 --- !u!1 &3960372577351256796
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,3 +309,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
+  chestSpeed50LevelScales:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  treeSpawn50LevelScales:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

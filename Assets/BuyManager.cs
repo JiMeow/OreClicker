@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuyManager : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class BuyManager : MonoBehaviour
     int[] quantity = new int[5];
     [SerializeField]
     GameObject NPC;
+
+    [SerializeField]
+    GameObject[] chestSpeed50LevelScales;
+    [SerializeField]
+    GameObject[] treeSpawn50LevelScales;
     private void Start()
     {
         quantity = InventoryManager.instance.GetQuantity();
@@ -15,16 +21,38 @@ public class BuyManager : MonoBehaviour
     }
 
     /// <summary>
-    /// if player buy increase chest speed by 50 and player have apple more than 4, then decrease apple quantity by 4 and increase chest speed by 50 percents
+    /// if player buy increase chest speed by 50 and player have apple more than 5, then decrease apple quantity by 5 and increase chest speed by 50 percents
     /// </summary>
     public void BuyChestSpeed50(bool loaded = false)
     {
-        if (quantity[0] >= 4 || loaded)
+        if (quantity[0] >= 5 || loaded)
         {
+            /* Checking if scale is not max or if it will max set text to MAX and -. */
+            bool complete = false;
+            for (int i = 0; i < chestSpeed50LevelScales.Length - 2; i++)
+            {
+                GameObject scale = chestSpeed50LevelScales[i];
+                if (scale.activeSelf)
+                {
+                    if (i == chestSpeed50LevelScales.Length - 3) // last levelgrade
+                    {
+                        chestSpeed50LevelScales[i + 1].GetComponent<Text>().text = "MAX";
+                        chestSpeed50LevelScales[i + 2].GetComponent<Text>().text = "-";
+                    }
+                    scale.SetActive(false); // hide white show black
+                    complete = true;
+                    break;
+                }
+            }
+            if (!complete)
+            {
+                return;
+            }
+            /**/
             if (!loaded)
             {
-                quantity[0] -= 4;
-                SaveBuy("BuyChestSpeed50", "Apple", 4);
+                quantity[0] -= 5;
+                SaveBuy("BuyChestSpeed50", "Apple", 5);
             }
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCMoveAndAnimation>().SetSpeedUp(50);
@@ -38,6 +66,28 @@ public class BuyManager : MonoBehaviour
     {
         if (quantity[0] >= 10 || loaded)
         {
+            /* Checking if scale is not max or if it will max set text to MAX and -. */
+            bool complete = false;
+            for (int i = 0; i < treeSpawn50LevelScales.Length - 2; i++)
+            {
+                GameObject scale = treeSpawn50LevelScales[i];
+                if (scale.activeSelf)
+                {
+                    if (i == treeSpawn50LevelScales.Length - 3) // last levelgrade
+                    {
+                        treeSpawn50LevelScales[i + 1].GetComponent<Text>().text = "MAX";
+                        treeSpawn50LevelScales[i + 2].GetComponent<Text>().text = "-";
+                    }
+                    scale.SetActive(false); // hide white show black
+                    complete = true;
+                    break;
+                }
+            }
+            if (!complete)
+            {
+                return;
+            }
+            /**/
             if (!loaded)
             {
                 quantity[0] -= 10;

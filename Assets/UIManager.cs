@@ -7,7 +7,11 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
     [SerializeField]
+
     GameObject[] QuantitiesText;
+    [SerializeField]
+    GameObject[] QuantitiesPhoto;
+
     [SerializeField]
     GameObject WindowUpgradesUI;
 
@@ -16,6 +20,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject[] UpgradeGoldenApple;
 
+    bool isScaleUIPhoto;
+
     private void Awake()
     {
         instance = this;
@@ -23,6 +29,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        isScaleUIPhoto = false;
         WindowUpgradesUI.SetActive(false);
     }
 
@@ -35,7 +42,43 @@ public class UIManager : MonoBehaviour
         int[] quantity = InventoryManager.instance.GetQuantity();
         for (int i = 0; i < QuantitiesText.Length; i++)
         {
-            QuantitiesText[i].GetComponent<Text>().text = quantity[i].ToString();
+            /*If text is new value*/
+            int nowItemCount = quantity[i];
+            int textItemCount = int.Parse(QuantitiesText[i].GetComponent<Text>().text);
+            if (nowItemCount != textItemCount)
+            {
+                QuantitiesText[i].GetComponent<Text>().text = nowItemCount.ToString();
+                StartCoroutine(ScaleUIPhoto(QuantitiesPhoto[i]));
+            }
+        }
+    }
+
+    /// <summary>
+    /// It scales the object up and down in a loop
+    /// </summary>
+    /// <param name="GameObject">The object you want to scale.</param>
+    IEnumerator ScaleUIPhoto(GameObject Obj)
+    {
+        if (!isScaleUIPhoto)
+        {
+            isScaleUIPhoto = true;
+            Vector3 startscale = Obj.transform.localScale;
+            Vector3 maxscale = new Vector3(1.75f, 1.75f, 1.75f);
+            while (Obj.transform.localScale.x < maxscale.x)
+            {
+                Obj.transform.localScale = new Vector3(Obj.transform.localScale.x + 0.035f, Obj.transform.localScale.y + 0.035f, Obj.transform.localScale.z + 0.035f);
+                yield return null;
+            }
+            while (Obj.transform.localScale.x > startscale.x)
+            {
+                Obj.transform.localScale = new Vector3(Obj.transform.localScale.x - 0.035f, Obj.transform.localScale.y - 0.035f, Obj.transform.localScale.z - 0.035f);
+                yield return null;
+            }
+            isScaleUIPhoto = false;
+        }
+        else
+        {
+            yield return null;
         }
     }
 

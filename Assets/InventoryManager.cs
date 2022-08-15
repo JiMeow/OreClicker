@@ -9,7 +9,7 @@ public class InventoryManager : MonoBehaviour
     // reference from "Name of the item" to "index of the item in the array (quantity)"
     // like "Apple" to "0"
     Dictionary<string, int> NameToIndex;
-    int[] quantity = new int[5];
+    public int[] quantity = new int[5];
 
     private void Awake()
     {
