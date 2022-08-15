@@ -55,7 +55,7 @@ public class BuyManager : MonoBehaviour
                 SaveBuy("BuyChestSpeed50", "Apple", 5);
             }
             UIManager.instance.SetQuantityText();
-            NPC.GetComponent<NPCMoveAndAnimation>().SetSpeedUp(50);
+            NPC.GetComponent<NPCTreeMoveAndAnimation>().SetSpeedUp(50);
         }
     }
 
@@ -94,7 +94,7 @@ public class BuyManager : MonoBehaviour
                 SaveBuy("BuyTreeSpawn50", "Apple", 10);
             }
             UIManager.instance.SetQuantityText();
-            SpawnManager.instance.SetSpawnTimeDown(50);
+            SpawnManager.instance.SetTreeSpawnTimeDown(50);
         }
     }
 
@@ -112,7 +112,7 @@ public class BuyManager : MonoBehaviour
                 SaveBuy("BuyChestAutoCut4", "Apple", 25);
             }
             UIManager.instance.SetQuantityText();
-            NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(4);
+            NPC.GetComponent<NPCTreeGetItemManager>().SetCutDelayTime(4);
             UIManager.instance.ShowNextUpgradeChestAutoCut(0);
         }
     }
@@ -131,7 +131,7 @@ public class BuyManager : MonoBehaviour
                 SaveBuy("BuyChestAutoCut2", "Apple", 50);
             }
             UIManager.instance.SetQuantityText();
-            NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(2);
+            NPC.GetComponent<NPCTreeGetItemManager>().SetCutDelayTime(2);
             UIManager.instance.ShowNextUpgradeChestAutoCut(1);
         }
     }
@@ -150,7 +150,7 @@ public class BuyManager : MonoBehaviour
                 SaveBuy("BuyChestAutoCut1", "Apple", 75);
             }
             UIManager.instance.SetQuantityText();
-            NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(1);
+            NPC.GetComponent<NPCTreeGetItemManager>().SetCutDelayTime(1);
             UIManager.instance.ShowNextUpgradeChestAutoCut(2);
         }
     }

@@ -33,19 +33,19 @@ public class TreeCutManager : MonoBehaviour
         if (durable <= 0 && notCuted)
         {
             notCuted = false;
-            DropApple();
+            DropItem();
             StartCoroutine(TransparentThisGameObject());
         }
         else
         {
-            TreeShake();
+            ShakeObject();
         }
     }
 
     /// <summary>
-    /// start the coroutine to make the tree shake
+    /// start the coroutine to make the object shake
     /// </summary>
-    private void TreeShake()
+    private void ShakeObject()
     {
         float shakeTime = 0.05f;
         StartCoroutine(Shake(shakeTime));
@@ -74,7 +74,7 @@ public class TreeCutManager : MonoBehaviour
     /// It spawns an apple at the tree's position. 
     /// drop the apple with a random chance of dropping a golden apple
     /// </summary>
-    private void DropApple()
+    private void DropItem()
     {
         Vector2 spawnPoint = new Vector2(transform.position.x, transform.position.y);
         int randomGoldApple = Random.Range(0, 100);

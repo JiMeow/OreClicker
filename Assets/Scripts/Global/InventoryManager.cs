@@ -21,6 +21,7 @@ public class InventoryManager : MonoBehaviour
         NameToIndex = new Dictionary<string, int>();
         NameToIndex.Add("Apple", 0);
         NameToIndex.Add("GoldenApple", 1);
+        NameToIndex.Add("StoneBar", 2);
         LoadInventory();
     }
 
@@ -56,6 +57,7 @@ public class InventoryManager : MonoBehaviour
     {
         quantity[0] = SaveGameManager.instance.LoadGameInt("Apple");
         quantity[1] = SaveGameManager.instance.LoadGameInt("GoldenApple");
+        quantity[2] = SaveGameManager.instance.LoadGameInt("StoneBar");
         UIManager.instance.SetQuantityText();
     }
 }

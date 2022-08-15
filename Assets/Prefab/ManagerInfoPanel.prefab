@@ -89,6 +89,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quantity: 0000000000000000000000000000000000000000
+--- !u!1 &3674810142388345934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7595240632123551965}
+  - component: {fileID: 551184438031531621}
+  m_Layer: 0
+  m_Name: SwitchSceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7595240632123551965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3674810142388345934}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6016259230585508157}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &551184438031531621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3674810142388345934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4f6e4025d24024db99befe84640615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3960372577351256796
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +211,7 @@ Transform:
   - {fileID: 1955151130884602371}
   - {fileID: 9083317357445821448}
   - {fileID: 6515844952627194327}
+  - {fileID: 7595240632123551965}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -181,7 +226,7 @@ GameObject:
   - component: {fileID: 3853274573122012260}
   - component: {fileID: 1470997449022501789}
   m_Layer: 0
-  m_Name: SpawnTreeManager
+  m_Name: SpawnManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,8 +263,12 @@ MonoBehaviour:
   isCanDropGoldenApple: 0
   goldenAppleDropRate: 0
   maxTreeInScene: 25
-  spawnTime: 0
-  countTime: 0
+  spawnTreeTime: 0
+  countTreeTime: 0
+  stonePrefab: {fileID: 0}
+  maxStoneInScene: 25
+  spawnStoneTime: 0
+  countStoneTime: 0
 --- !u!1 &6376709987322542259
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,6 +359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
   chestSpeed50LevelScales:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

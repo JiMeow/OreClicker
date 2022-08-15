@@ -10,12 +10,22 @@ public class SpawnManager : MonoBehaviour
     public bool isCanDropGoldenApple;
     public int goldenAppleDropRate;
     public int maxTreeInScene = 25;
-    public float spawnTime;
-    public float countTime;
-    float topleftx = -2.65f;
-    float toplefty = 1.00f;
-    float bottomrightx = 2.75f;
-    float bottomrighty = -1.0f;
+    public float spawnTreeTime;
+    public float countTreeTime;
+    float topleftxTree = -2.65f;
+    float topleftyTree = 1.00f;
+    float bottomrightxTree = 2.75f;
+    float bottomrightyTree = -1.0f;
+
+    [SerializeField]
+    GameObject stonePrefab;
+    public int maxStoneInScene = 25;
+    public float spawnStoneTime;
+    public float countStoneTime;
+    float topleftxStone = -2.65f + 9.98f;
+    float topleftyStone = 1.00f;
+    float bottomrightxStone = 2.75f + 9.98f;
+    float bottomrightyStone = -1.0f;
 
     private void Awake()
     {
@@ -25,19 +35,30 @@ public class SpawnManager : MonoBehaviour
     private void Start()
     {
         goldenAppleDropRate = 2;
-        spawnTime = 5.0f;
+        spawnTreeTime = 5.0f;
+        spawnStoneTime = 10.0f;
     }
 
     private void Update()
     {
-        countTime += Time.deltaTime;
+        countTreeTime += Time.deltaTime;
         // every spawnTime seconds, spawn a tree
-        if (countTime > spawnTime)
+        if (countTreeTime > spawnTreeTime)
         {
             if (GameObject.FindGameObjectsWithTag("Tree").Length < maxTreeInScene)
             {
                 SpawnTree();
-                countTime = 0;
+                countTreeTime = 0;
+            }
+        }
+        countStoneTime += Time.deltaTime;
+        // every spawnTime seconds, spawn a stone
+        if (countStoneTime > spawnStoneTime)
+        {
+            if (GameObject.FindGameObjectsWithTag("Stone").Length < maxStoneInScene)
+            {
+                SpawnStone();
+                countStoneTime = 0;
             }
         }
     }
@@ -48,8 +69,8 @@ public class SpawnManager : MonoBehaviour
     /// </summary>
     private void SpawnTree()
     {
-        float x = Random.Range(topleftx, bottomrightx);
-        float y = Random.Range(toplefty, bottomrighty);
+        float x = Random.Range(topleftxTree, bottomrightxTree);
+        float y = Random.Range(topleftyTree, bottomrightyTree);
         Vector2 spawnPoint = new Vector2(x, y);
 
         GameObject newTree = Instantiate(treePrefab, spawnPoint, Quaternion.identity);
@@ -60,13 +81,27 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    private void SpawnStone()
+    {
+        float x = Random.Range(topleftxStone, bottomrightxStone);
+        float y = Random.Range(topleftyStone, bottomrightyStone);
+        Vector2 spawnPoint = new Vector2(x, y);
+
+        GameObject newStone = Instantiate(stonePrefab, spawnPoint, Quaternion.identity);
+    }
+
     /// <summary>
     /// It takes a float value (percent) then decrease the spawncooldown of the tree by that percent
     /// </summary>
     /// <param name="percent">The percentage of the current spawn time to decrease by.</param>
-    public void SetSpawnTimeDown(float percent)
+    public void SetTreeSpawnTimeDown(float percent)
     {
-        spawnTime *= (1.0f - percent / 100f);
+        spawnTreeTime *= (1.0f - percent / 100f);
+    }
+
+    public void SetStoneSpawnTimeDown(float percent)
+    {
+        spawnStoneTime *= (1.0f - percent / 100f);
     }
 
     /// <summary>

@@ -37,8 +37,8 @@ public class AppleManager : MonoBehaviour
     {
         if (other.gameObject.tag == "NPC")
         {
-            other.gameObject.GetComponent<NPCGetItemManager>().GetItem(gameObject);
-            other.gameObject.GetComponent<NPCMoveAndAnimation>().SetEatingAnimation();
+            other.gameObject.GetComponent<NPCTreeGetItemManager>().GetItem(gameObject);
+            other.gameObject.GetComponent<NPCTreeMoveAndAnimation>().SetEatingAnimation();
             Destroy(gameObject);
         }
     }
@@ -49,7 +49,7 @@ public class AppleManager : MonoBehaviour
     /// </summary>
     private void OnMouseDown()
     {
-        NPC.GetComponent<NPCMoveAndAnimation>().MoveToPoint(new Vector2(transform.position.x, transform.position.y - dropDistance));
+        NPC.GetComponent<NPCTreeMoveAndAnimation>().MoveToPoint(new Vector2(transform.position.x, transform.position.y - dropDistance));
     }
 
 }

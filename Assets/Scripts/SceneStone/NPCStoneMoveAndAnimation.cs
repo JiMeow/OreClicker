@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCMoveAndAnimation : MonoBehaviour
+public class NPCStoneMoveAndAnimation : MonoBehaviour
 {
     // have to move equal to vectorToGo for go to destination
     public Vector2 vectorToGo;
-    public bool isCutting;
+    public bool isMoving;
     public float NpcSpeed;
-    bool whenStopCutTree = false;
+    bool whenStopHitStone = false;
 
     private void Start()
     {
         vectorToGo = new Vector2(0, 0);
-        isCutting = false;
+        isMoving = false;
     }
 
     private void Update()
@@ -23,8 +23,8 @@ public class NPCMoveAndAnimation : MonoBehaviour
 
     private void Move()
     {
-        // if have to move to cut tree
-        if (isCutting)
+        // if have to move to hit stone
+        if (isMoving)
         {
             // move towards destination by NpcSpeed
             Vector2 move = vectorToGo.normalized * NpcSpeed * Time.deltaTime;
@@ -39,15 +39,15 @@ public class NPCMoveAndAnimation : MonoBehaviour
             vectorToGo -= move;
             if (vectorToGo.magnitude <= 0.001f)
             {
-                // if NPC is at destination and whenStopCutTree is true, then cut closet tree
-                if (whenStopCutTree)
+                // if NPC is at destination and whenStopHitStone is true, then hit stone
+                if (whenStopHitStone)
                 {
-                    CutClosetTree();
+                    HitClosetStone();
                 }
                 // else stop moving
                 else
                 {
-                    isCutting = false;
+                    isMoving = false;
                 }
             }
         }
@@ -68,14 +68,14 @@ public class NPCMoveAndAnimation : MonoBehaviour
     /// object and the worldPosition parameter (for go to world position from current position by vectorToGo vector)
     /// </summary>
     /// <param name="Vector2">The position you want the object to move to.</param>
-    public void MoveToPoint(Vector2 worldPosition, bool whenStopCutTree = false)
+    public void MoveToPoint(Vector2 worldPosition, bool whenStopHitStone = false)
     {
         // if not go for cutting
-        if (!isCutting)
+        if (!isMoving)
         {
             vectorToGo = worldPosition - new Vector2(transform.position.x, transform.position.y);
-            this.whenStopCutTree = whenStopCutTree;
-            isCutting = true;
+            this.whenStopHitStone = whenStopHitStone;
+            isMoving = true;
         }
     }
 
@@ -111,17 +111,17 @@ public class NPCMoveAndAnimation : MonoBehaviour
     /// <returns>
     /// A boolean value.
     /// </returns>
-    public bool isCut()
+    public bool Moving()
     {
-        return isCutting;
+        return isMoving;
     }
 
     /// <summary>
     /// Find the closest tree to the player, and cut it down with power = 3
     /// </summary>
-    private void CutClosetTree()
+    private void HitClosetStone()
     {
-        GameObject[] trees = GameObject.FindGameObjectsWithTag("Tree");
+        GameObject[] trees = GameObject.FindGameObjectsWithTag("Stone");
         // have 1 prototype tree in scene for instantiate so ignore the this tree
         if (trees.Length == 1)
             return;
@@ -144,10 +144,10 @@ public class NPCMoveAndAnimation : MonoBehaviour
         }
         if (minimumDistanceTree != null)
         {
-            minimumDistanceTree.GetComponent<TreeCutManager>().CutTree(3);
-            whenStopCutTree = false;
+            minimumDistanceTree.GetComponent<StoneBrickManager>().HitStone(1);
+            whenStopHitStone = false;
         }
-        isCutting = false;
+        isMoving = false;
     }
 
     /// <summary>

@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NPCGetItemManager : MonoBehaviour
+public class NPCTreeGetItemManager : MonoBehaviour
 {
     public float cutDelayTime;
     public float countTime;
-    NPCMoveAndAnimation NPCmove;
+    NPCTreeMoveAndAnimation NPCmove;
 
     private void Start()
     {
         // max int
         cutDelayTime = 2147483647;
-        NPCmove = GetComponent<NPCMoveAndAnimation>();
+        NPCmove = GetComponent<NPCTreeMoveAndAnimation>();
     }
 
     private void Update()
@@ -23,7 +23,7 @@ public class NPCGetItemManager : MonoBehaviour
         // if countTime is greater than cutDelayTime, and NPC is not moving, then set NPC to cut the cloest tree (auto)
         if (countTime >= cutDelayTime)
         {
-            if (!NPCmove.isCut())
+            if (!NPCmove.Moving())
             {
                 if (CutClosetTree())
                 {

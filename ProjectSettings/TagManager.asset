@@ -10,6 +10,9 @@ TagManager:
   - Apple
   - UpgradeHide
   - GoldenApple
+  - UpgradeLevel1
+  - Stone
+  - StoneBar
   layers:
   - Default
   - TransparentFX
