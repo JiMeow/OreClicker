@@ -22,11 +22,12 @@ public class BuyManager : MonoBehaviour
         if (quantity[0] >= 4 || free)
         {
             if (!free)
+            {
                 quantity[0] -= 4;
+                SaveBuy("BuyChestSpeed50", "Apple", 4);
+            }
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCMoveAndAnimation>().SetSpeedUp(50);
-
-            SaveBuy("BuyChestSpeed50", "Apple", 4);
         }
     }
 
@@ -38,11 +39,12 @@ public class BuyManager : MonoBehaviour
         if (quantity[0] >= 10 || free)
         {
             if (!free)
+            {
                 quantity[0] -= 10;
+                SaveBuy("BuyTreeSpawn50", "Apple", 10);
+            }
             UIManager.instance.SetQuantityText();
             SpawnManager.instance.SetSpawnTimeDown(50);
-
-            SaveBuy("BuyTreeSpawn50", "Apple", 10);
         }
     }
 
@@ -55,12 +57,13 @@ public class BuyManager : MonoBehaviour
         if (quantity[0] >= 25 || free)
         {
             if (!free)
+            {
                 quantity[0] -= 25;
+                SaveBuy("BuyChestAutoCut4", "Apple", 25);
+            }
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(4);
             UIManager.instance.ShowNextUpgradeChestAutoCut(0);
-
-            SaveBuy("BuyChestAutoCut4", "Apple", 25);
         }
     }
 
@@ -73,12 +76,13 @@ public class BuyManager : MonoBehaviour
         if (quantity[0] >= 50 || free)
         {
             if (!free)
+            {
                 quantity[0] -= 50;
+                SaveBuy("BuyChestAutoCut2", "Apple", 50);
+            }
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(2);
             UIManager.instance.ShowNextUpgradeChestAutoCut(1);
-
-            SaveBuy("BuyChestAutoCut2", "Apple", 50);
         }
     }
 
@@ -91,12 +95,13 @@ public class BuyManager : MonoBehaviour
         if (quantity[0] >= 75 || free)
         {
             if (!free)
+            {
                 quantity[0] -= 75;
+                SaveBuy("BuyChestAutoCut1", "Apple", 75);
+            }
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCGetItemManager>().SetCutDelayTime(1);
             UIManager.instance.ShowNextUpgradeChestAutoCut(2);
-
-            SaveBuy("BuyChestAutoCut1", "Apple", 75);
         }
     }
 
@@ -109,12 +114,13 @@ public class BuyManager : MonoBehaviour
         if (quantity[0] >= 90 || free)
         {
             if (!free)
+            {
                 quantity[0] -= 90;
+                SaveBuy("BuyGoldenAppleRate", "Apple", 90);
+            }
             UIManager.instance.SetQuantityText();
             SpawnManager.instance.SetCanDropGoldenApple();
             UIManager.instance.ShowNextUpgradeGoldenApple(0);
-
-            SaveBuy("BuyGoldenAppleRate", "Apple", 90);
         }
     }
 
