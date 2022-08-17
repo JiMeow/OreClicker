@@ -25,7 +25,7 @@ public class NPCStoneGetItemManager : MonoBehaviour
         {
             if (!NPCmove.Moving())
             {
-                if (HitClosetStone())
+                if (HitRandomStone())
                 {
                     countTime = 0;
                 }
@@ -46,34 +46,22 @@ public class NPCStoneGetItemManager : MonoBehaviour
 
 
     /// <summary>
-    /// Find the closest stone to the player, and move the player to that stone and hit it when at the stone
+    /// Find the random stone, and move the player to that stone and hit it when at the stone
     /// </summary>
-    private bool HitClosetStone()
+    private bool HitRandomStone()
     {
         GameObject[] stones = GameObject.FindGameObjectsWithTag("Stone");
-        GameObject minimumDistanceStone = null;
         // have 1 prototype stone in scene for instantiate so ignore the this stone
         if (stones.Length == 1)
             return false;
-        float minimumDistance = float.MaxValue;
-        foreach (GameObject stone in stones)
-        {
-            // have 1 prototype stone in scene for instantiate so ignore the this stone
-            if (stone.transform.position.x < -5) continue;
-            float distance = EuclideanDistance(stone.transform.position, transform.position);
-            if (distance < minimumDistance)
-            {
-                minimumDistance = distance;
-                minimumDistanceStone = stone;
-            }
-        }
-        if (minimumDistanceStone != null)
-        {
-            Vector3 stonePosition = minimumDistanceStone.transform.position;
-            NPCmove.MoveToPoint(stonePosition, whenStopHitStone: true);
-            return true;
-        }
-        return false;
+
+        GameObject randomStone = stones[Random.Range(0, stones.Length)];
+        // if stone is not in range, that stone in proto type
+        if (randomStone.transform.position.x < -5)
+            return false;
+
+        NPCmove.MoveToPoint(randomStone.transform.position, whenStopHitStone: true);
+        return true;
     }
 
 

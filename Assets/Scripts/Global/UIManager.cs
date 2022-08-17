@@ -90,7 +90,8 @@ public class UIManager : MonoBehaviour
         {
             isScaleUIPhoto = true;
             Vector3 startscale = Obj.transform.localScale;
-            Vector3 maxscale = new Vector3(1.75f, 1.75f, 1.75f);
+            Vector3 endscale = new Vector3(startscale.x * 1.75f, startscale.y * 1.75f, startscale.z * 1.75f);
+            Vector3 maxscale = endscale;
             while (Obj.transform.localScale.x < maxscale.x)
             {
                 Obj.transform.localScale = new Vector3(Obj.transform.localScale.x + 0.035f, Obj.transform.localScale.y + 0.035f, Obj.transform.localScale.z + 0.035f);

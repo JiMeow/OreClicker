@@ -80,6 +80,10 @@ public class SpawnManager : MonoBehaviour
         Vector2 spawnPoint = new Vector2(x, y);
 
         GameObject newTree = Instantiate(treePrefab, spawnPoint, Quaternion.identity);
+
+
+        float multipleScale = Random.Range(1f, 1.2f);
+        newTree.transform.localScale *= multipleScale;
         // if the tree must can drop golden apple, then set it to can drop golden apple
         if (isCanDropGoldenApple)
         {
@@ -101,6 +105,9 @@ public class SpawnManager : MonoBehaviour
         Vector2 spawnPoint = new Vector2(x, y);
 
         GameObject newStone = Instantiate(stonePrefab, spawnPoint, Quaternion.identity);
+
+        float multipleScale = Random.Range(1f, 1.25f);
+        newStone.transform.localScale *= multipleScale;
     }
 
     /// <summary>

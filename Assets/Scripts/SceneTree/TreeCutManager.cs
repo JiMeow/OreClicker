@@ -8,7 +8,7 @@ public class TreeCutManager : MonoBehaviour
     GameObject applePrefab;
     [SerializeField]
     GameObject goldenApplePrefab;
-    public int durable;
+    public int durable; //3
     int dropGoldenAppleRate;
     bool notCuted = true;
 

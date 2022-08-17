@@ -6,7 +6,7 @@ public class StoneBrickManager : MonoBehaviour
 {
     [SerializeField]
     GameObject stoneBarPrefab;
-    public int durable;
+    public int durable; // 5
     public float dropRate;
     bool notDestroyed = true;
 
