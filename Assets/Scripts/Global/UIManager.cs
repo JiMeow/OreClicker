@@ -18,11 +18,17 @@ public class UIManager : MonoBehaviour
 
     [Header("Upgrades scene1")]
     [SerializeField]
+    GameObject[] chestSpeed50LevelScales;
+    [SerializeField]
+    GameObject[] treeSpawn50LevelScales;
+    [SerializeField]
     GameObject[] UpgradeChestAutoCut;
     [SerializeField]
     GameObject[] UpgradeGoldenApple;
+
     [SerializeField]
     GameObject[] UpgradeGoNextStage;
+
 
     bool isScaleUIPhoto;
 
@@ -99,6 +105,63 @@ public class UIManager : MonoBehaviour
         {
             WindowUpgradesUI.SetActive(true);
         }
+    }
+
+
+    //// SCENE TREE
+
+    /// <summary>
+    /// If upgrade is not at max level, it increases the upgrade level by 1 (add scale) and returns true
+    /// then if it was max level, change the upgrade text to 'MAX' and value to '-', but if not max level return false
+    /// </summary>
+    /// <returns>
+    /// a boolean value.
+    /// </returns>
+    public bool CanBuyChestSpeed50()
+    {
+        /* Checking if scale is not max or if it will max set text to MAX and -. */
+        for (int i = 0; i < chestSpeed50LevelScales.Length - 2; i++)
+        {
+            GameObject scale = chestSpeed50LevelScales[i];
+            if (scale.activeSelf)
+            {
+                if (i == chestSpeed50LevelScales.Length - 3) // last levelgrade
+                {
+                    chestSpeed50LevelScales[i + 1].GetComponent<Text>().text = "MAX";
+                    chestSpeed50LevelScales[i + 2].GetComponent<Text>().text = "-";
+                }
+                scale.SetActive(false); // hide white show black
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// If upgrade is not at max level, it increases the upgrade level by 1 (add scale) and returns true
+    /// then if it was max level, change the upgrade text to 'MAX' and value to '-', but if not max level return false
+    /// </summary>
+    /// <returns>
+    /// a boolean value.
+    /// </returns>
+    public bool CanBuyTreeSpawn50()
+    {
+        /* Checking if scale is not max or if it will max set text to MAX and -. */
+        for (int i = 0; i < treeSpawn50LevelScales.Length - 2; i++)
+        {
+            GameObject scale = treeSpawn50LevelScales[i];
+            if (scale.activeSelf)
+            {
+                if (i == treeSpawn50LevelScales.Length - 3) // last levelgrade
+                {
+                    treeSpawn50LevelScales[i + 1].GetComponent<Text>().text = "MAX";
+                    treeSpawn50LevelScales[i + 2].GetComponent<Text>().text = "-";
+                }
+                scale.SetActive(false); // hide white show black
+                return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>

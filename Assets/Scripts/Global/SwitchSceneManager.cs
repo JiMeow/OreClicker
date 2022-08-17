@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class SwitchSceneManager : MonoBehaviour
 {
+    public static SwitchSceneManager instance;
+    public int mapUnlocked;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    private void Start()
+    {
+        mapUnlocked = 1;
+    }
+
     enum Scene
     {
         Grass,
@@ -12,7 +24,6 @@ public class SwitchSceneManager : MonoBehaviour
 
     [SerializeField]
     Scene scene;
-
 
     /// <summary>
     /// "If the scene is grass, move the camera to the stone scene, and if the scene is stone, move the
@@ -47,5 +58,21 @@ public class SwitchSceneManager : MonoBehaviour
             main.transform.position = new Vector3(main.transform.position.x + direction * 0.1f, main.transform.position.y, main.transform.position.z);
             yield return new WaitForSeconds(0.01f);
         }
+    }
+
+    /// <summary>
+    /// It make another scene active
+    /// </summary>
+    public void UnlockNewScene()
+    {
+        mapUnlocked++;
+    }
+
+    /// <summary>
+    /// Get the number of unlocked scene
+    /// </summary>
+    public int GetMapUnlocked()
+    {
+        return mapUnlocked;
     }
 }

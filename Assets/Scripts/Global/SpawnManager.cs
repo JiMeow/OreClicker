@@ -72,6 +72,9 @@ public class SpawnManager : MonoBehaviour
     /// </summary>
     private void SpawnTree()
     {
+        if (SwitchSceneManager.instance.GetMapUnlocked() < 1)
+            return;
+
         float x = Random.Range(topleftxTree, bottomrightxTree);
         float y = Random.Range(topleftyTree, bottomrightyTree);
         Vector2 spawnPoint = new Vector2(x, y);
@@ -90,6 +93,9 @@ public class SpawnManager : MonoBehaviour
     /// </summary>
     private void SpawnStone()
     {
+        if (SwitchSceneManager.instance.GetMapUnlocked() < 2)
+            return;
+
         float x = Random.Range(topleftxStone, bottomrightxStone);
         float y = Random.Range(topleftyStone, bottomrightyStone);
         Vector2 spawnPoint = new Vector2(x, y);

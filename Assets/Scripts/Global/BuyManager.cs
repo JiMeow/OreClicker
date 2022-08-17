@@ -5,17 +5,11 @@ using UnityEngine.UI;
 
 public class BuyManager : MonoBehaviour
 {
-    // [0] -> apple, [1] -> coal
+    // [0] -> apple, [1] -> golden apple;
     int[] quantity = new int[5];
     [SerializeField]
     GameObject NPC;
 
-    /* should at UIManager */
-    [SerializeField]
-    GameObject[] chestSpeed50LevelScales;
-    [SerializeField]
-    GameObject[] treeSpawn50LevelScales;
-    /* should at UIManager */
     private void Start()
     {
         quantity = InventoryManager.instance.GetQuantity();
@@ -29,30 +23,8 @@ public class BuyManager : MonoBehaviour
     {
         if (quantity[0] >= 5 || loaded)
         {
-            /* Checking if scale is not max or if it will max set text to MAX and -. */
-            /* should at UIManager */
-            bool complete = false;
-            for (int i = 0; i < chestSpeed50LevelScales.Length - 2; i++)
-            {
-                GameObject scale = chestSpeed50LevelScales[i];
-                if (scale.activeSelf)
-                {
-                    if (i == chestSpeed50LevelScales.Length - 3) // last levelgrade
-                    {
-                        chestSpeed50LevelScales[i + 1].GetComponent<Text>().text = "MAX";
-                        chestSpeed50LevelScales[i + 2].GetComponent<Text>().text = "-";
-                    }
-                    scale.SetActive(false); // hide white show black
-                    complete = true;
-                    break;
-                }
-            }
-            if (!complete)
-            {
+            if (!UIManager.instance.CanBuyChestSpeed50())
                 return;
-            }
-            /* should at UIManager */
-            /*Check complete*/
             if (!loaded)
             {
                 quantity[0] -= 5;
@@ -70,30 +42,8 @@ public class BuyManager : MonoBehaviour
     {
         if (quantity[0] >= 10 || loaded)
         {
-            /* Checking if scale is not max or if it will max set text to MAX and -. */
-            /* should at UIManager */
-            bool complete = false;
-            for (int i = 0; i < treeSpawn50LevelScales.Length - 2; i++)
-            {
-                GameObject scale = treeSpawn50LevelScales[i];
-                if (scale.activeSelf)
-                {
-                    if (i == treeSpawn50LevelScales.Length - 3) // last levelgrade
-                    {
-                        treeSpawn50LevelScales[i + 1].GetComponent<Text>().text = "MAX";
-                        treeSpawn50LevelScales[i + 2].GetComponent<Text>().text = "-";
-                    }
-                    scale.SetActive(false); // hide white show black
-                    complete = true;
-                    break;
-                }
-            }
-            if (!complete)
-            {
+            if (!UIManager.instance.CanBuyTreeSpawn50())
                 return;
-            }
-            /* should at UIManager */
-            /*Check complete*/
             if (!loaded)
             {
                 quantity[0] -= 10;
@@ -180,6 +130,11 @@ public class BuyManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// If the player has 5 golden apples, subtract 5 golden apples from the player's inventory, save the purchase, show the
+    /// next upgrade, and unlock the next scene
+    /// </summary>
+    /// <param name="loaded">This is a boolean that is true if the game is loaded.</param>
     public void BuyGoNextStage(bool loaded = false)
     {
         if (quantity[1] >= 5 || loaded)
@@ -191,6 +146,7 @@ public class BuyManager : MonoBehaviour
             }
             UIManager.instance.SetQuantityText();
             UIManager.instance.ShowNextUpgradeGoNextStage(0);
+            SwitchSceneManager.instance.UnlockNewScene();
         }
     }
 

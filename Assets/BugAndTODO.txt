@@ -1,0 +1,9 @@
+* stonescene start when not unlock //
+
+* change buymanager <-> uimanager //
+
+* opn upgrade show ui of that scene
+
+* add new upgrade on scenestone
+
+* edit ui for swap scene in switchscenemanager
