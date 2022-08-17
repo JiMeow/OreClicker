@@ -62,6 +62,10 @@ public class SwitchSceneManager : MonoBehaviour
         Goto(nextScene);
     }
 
+    /// <summary>
+    /// Move the camera to the scene with index sceneIndex
+    /// </summary>
+    /// <param name="index">The index of the scene you want to go to.</param>
     private void Goto(int index)
     {
         switch (index)

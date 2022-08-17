@@ -146,6 +146,13 @@ public class UIManager : MonoBehaviour
 
 
     //// SCENE TREE
+    //// SCENE TREE
+    //// SCENE TREE
+    //// SCENE TREE
+    //// SCENE TREE
+    //// SCENE TREE
+    //// SCENE TREE
+    //// SCENE TREE
 
     /// <summary>
     /// If upgrade is not at max level, it increases the upgrade level by 1 (add scale) and returns true
@@ -244,9 +251,19 @@ public class UIManager : MonoBehaviour
     }
 
 
-
+    /// SCENE STONE
+    /// SCENE STONE
+    /// SCENE STONE
+    /// SCENE STONE
+    /// SCENE STONE
+    /// SCENE STONE
+    /// SCENE STONE
     /// SCENE STONE
 
+    /// <summary>
+    /// If chestStoneSpeed upgrade is not at max level, it increases the upgrade level by 1 (add scale) and returns true
+    /// then if it was max level, change the upgrade text to 'MAX' and value to '-', but if not max level return false
+    /// </summary>
     public bool CanBuyChestStoneSpeed50()
     {
         /* Checking if scale is not max or if it will max set text to MAX and -. */
@@ -267,8 +284,11 @@ public class UIManager : MonoBehaviour
         return false;
     }
 
-
-    public bool CanBuyStoneSpawn50()
+    /// <summary>
+    /// If StoneSpawn upgrade is not at max level, it increases the upgrade level by 1 (add scale) and returns true
+    /// then if it was max level, change the upgrade text to 'MAX' and value to '-', but if not max level return false
+    /// </summary>
+    public bool CanBuyStoneSpawn30()
     {
         /* Checking if scale is not max or if it will max set text to MAX and -. */
         for (int i = 0; i < stoneSpawn50LevelScales.Length - 2; i++)
@@ -289,6 +309,11 @@ public class UIManager : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// It takes an integer as an argument and sets the active state of the game objects in the array to
+    /// false, then sets the active state of the next game object in the array to true
+    /// </summary>
+    /// <param name="nowIndex">The current index of the upgrade.</param>
     public void ShowNextUpgradeChestAutoDestroyStone(int nowIndex)
     {
         for (int i = 0; i <= nowIndex; i++)
@@ -299,6 +324,10 @@ public class UIManager : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// It takes an integer as an argument and sets the active state of the game objects in the array to
+    /// false, then sets the active state of the next game object in the array to true
+    /// </summary>
     public void ShowNextUpgradeGoldenStone(int nowIndex)
     {
         for (int i = 0; i <= nowIndex; i++)
@@ -308,7 +337,10 @@ public class UIManager : MonoBehaviour
         UpgradeGoldenStone[nowIndex + 1].SetActive(true);
     }
 
-
+    /// <summary>
+    /// It takes an integer as an argument and sets the active state of the game objects in the array to
+    /// false, then sets the active state of the next game object in the array to true
+    /// </summary>
     public void ShowNextUpgradeGoNextStageStone(int nowIndex)
     {
         for (int i = 0; i <= nowIndex; i++)

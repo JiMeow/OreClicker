@@ -16,6 +16,7 @@ public class BuyManager2 : MonoBehaviour
     }
 
     /// <summary>
+    /// if player buy increase chest speed by 50 and player have apple more than 5, then decrease apple quantity by 5 and increase chest speed by 50 percents
     /// </summary>
     public void BuyChestStoneSpeed50(bool loaded = false)
     {
@@ -34,17 +35,18 @@ public class BuyManager2 : MonoBehaviour
     }
 
     /// <summary>
+    /// if player buy stoneSpawn30 and player have stone bar more than 10, then decrease stone bar quantity by 10 and increase stoneSpawn time by 30 percents
     /// </summary>
-    public void BuyStoneSpawn50(bool loaded = false)
+    public void BuyStoneSpawn30(bool loaded = false)
     {
         if (quantity[2] >= 10 || loaded)
         {
-            if (!UIManager.instance.CanBuyStoneSpawn50())
+            if (!UIManager.instance.CanBuyStoneSpawn30())
                 return;
             if (!loaded)
             {
                 quantity[2] -= 10;
-                SaveBuy("BuyStoneSpawn50", "StoneBar", 10);
+                SaveBuy("BuyStoneSpawn30", "StoneBar", 10);
             }
             UIManager.instance.SetQuantityText();
             SpawnManager.instance.SetStoneSpawnTimeDown(30);
@@ -52,6 +54,7 @@ public class BuyManager2 : MonoBehaviour
     }
 
     /// <summary>
+    /// if player buy auto destroy stone and player have stone bar more than 25, then decrease stone bar quantity by 25 and set auto destroy stone to true with 10 second cooldown
     /// </summary>
     public void BuyChestAutoDestroyStone1(bool loaded = false)
     {
@@ -69,6 +72,7 @@ public class BuyManager2 : MonoBehaviour
     }
 
     /// <summary>
+    /// if player buy auto destroy stone and player have stone bar more than 25, then decrease stone bar quantity by 25 and set auto destroy stone to true with 8 second cooldown
     /// </summary>
     public void BuyChestAutoDestroyStone2(bool loaded = false)
     {
@@ -86,6 +90,7 @@ public class BuyManager2 : MonoBehaviour
     }
 
     /// <summary>
+    /// if player buy auto destroy stone and player have stone bar more than 25, then decrease stone bar quantity by 25 and set auto destroy stone to true with 5 second cooldown
     /// </summary>
     public void BuyChestAutoDestroyStone3(bool loaded = false)
     {
@@ -120,20 +125,21 @@ public class BuyManager2 : MonoBehaviour
     // }
 
     /// <summary>
-    public void BuyGoNextStageStone(bool loaded = false)
-    {
-        if (quantity[3] >= 50 || loaded)
-        {
-            if (!loaded)
-            {
-                quantity[3] -= 50;
-                SaveBuy("BuyGoNextStageStone", "CoalBar", 50);
-            }
-            UIManager.instance.SetQuantityText();
-            UIManager.instance.ShowNextUpgradeGoNextStageStone(0);
-            SwitchSceneManager.instance.UnlockNewScene();
-        }
-    }
+    /// </summary>
+    // public void BuyGoNextStageStone(bool loaded = false)
+    // {
+    //     if (quantity[3] >= 50 || loaded)
+    //     {
+    //         if (!loaded)
+    //         {
+    //             quantity[3] -= 50;
+    //             SaveBuy("BuyGoNextStageStone", "CoalBar", 50);
+    //         }
+    //         UIManager.instance.SetQuantityText();
+    //         UIManager.instance.ShowNextUpgradeGoNextStageStone(0);
+    //         SwitchSceneManager.instance.UnlockNewScene();
+    //     }
+    // }
 
     /// <summary>
     /// This function takes in a string for the item name, a string for the money type, and an int for
@@ -163,10 +169,10 @@ public class BuyManager2 : MonoBehaviour
             BuyChestStoneSpeed50(loaded: true);
             amoutOfBuy--;
         }
-        amoutOfBuy = SaveGameManager.instance.LoadGameInt("BuyStoneSpawn50");
+        amoutOfBuy = SaveGameManager.instance.LoadGameInt("BuyStoneSpawn30");
         while (amoutOfBuy > 0)
         {
-            BuyStoneSpawn50(loaded: true);
+            BuyStoneSpawn30(loaded: true);
             amoutOfBuy--;
         }
         if (SaveGameManager.instance.LoadGameInt("BuyChestAutoDestroyStone1") > 0)
@@ -185,9 +191,9 @@ public class BuyManager2 : MonoBehaviour
         // {
         //     BuyGoldenAppleRate(loaded: true);
         // }
-        if (SaveGameManager.instance.LoadGameInt("BuyGoNextStageStone") > 0)
-        {
-            BuyGoNextStageStone(loaded: true);
-        }
+        // if (SaveGameManager.instance.LoadGameInt("BuyGoNextStageStone") > 0)
+        // {
+        //     BuyGoNextStageStone(loaded: true);
+        // }
     }
 }

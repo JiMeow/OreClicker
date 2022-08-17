@@ -408,7 +408,7 @@ PrefabInstance:
       objectReference: {fileID: 2035254241}
     - target: {fileID: 2831209603160467625, guid: 1631b7a7ee647024f98c240a1add942f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuyStoneSpawn50
+      value: BuyStoneSpawn30
       objectReference: {fileID: 0}
     - target: {fileID: 2831209603160467625, guid: 1631b7a7ee647024f98c240a1add942f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
