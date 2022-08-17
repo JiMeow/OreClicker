@@ -184,4 +184,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vectorToGo: {x: 0, y: 0}
   isMoving: 0
-  NpcSpeed: 0.75
+  NpcSpeed: 1

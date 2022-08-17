@@ -7,43 +7,74 @@ public class SwitchSceneManager : MonoBehaviour
     public static SwitchSceneManager instance;
     public int mapUnlocked;
 
+    string[] sceneList;
+    int nowScene;
+
+    bool MovingCamreaCoroutineRunning;
+
     private void Awake()
     {
         instance = this;
-    }
-    private void Start()
-    {
         mapUnlocked = 1;
     }
 
-    enum Scene
+    private void Start()
     {
-        Grass,
-        Stone,
+        nowScene = 0;
+        MovingCamreaCoroutineRunning = false;
+        sceneList = new string[10];
+        sceneList[0] = "Grass";
+        sceneList[1] = "Stone";
     }
 
-    [SerializeField]
-    Scene scene;
+    // Grass at 0, 0f
+    // Stone at 1, 9.98f
 
     /// <summary>
-    /// "If the scene is grass, move the camera to the stone scene, and if the scene is stone, move the
-    /// camera to the grass scene." - not complete
+    /// If the camera is not moving, then move the camera to the next left scene
     /// </summary>
-    public void SwitchScene()
+    public void SwitchSceneLeft()
     {
-        switch (scene)
+        if (MovingCamreaCoroutineRunning)
+            return;
+
+        int nextScene = nowScene - 1;
+        if (nextScene < 0)
         {
-            case Scene.Grass:
-                StartCoroutine(MoveMainCamera(9.98f));
-                scene = Scene.Stone;
-                break;
-            case Scene.Stone:
-                StartCoroutine(MoveMainCamera(0f));
-                scene = Scene.Grass;
-                break;
+            nextScene = mapUnlocked - 1;
         }
+        Goto(nextScene);
     }
 
+    /// <summary>
+    /// If the camera is not moving, then move the camera to the next right scene
+    /// </summary>
+    public void SwitchSceneRight()
+    {
+        if (MovingCamreaCoroutineRunning)
+            return;
+
+        int nextScene = nowScene + 1;
+        if (nextScene > mapUnlocked - 1)
+        {
+            nextScene = 0;
+        }
+        Goto(nextScene);
+    }
+
+    private void Goto(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                StartCoroutine(MoveMainCamera(0f));
+                break;
+            case 1:
+                StartCoroutine(MoveMainCamera(9.98f));
+                break;
+        }
+        nowScene = index;
+    }
 
     /// <summary>
     /// It moves the main camera to the position specified by the parameter
@@ -51,6 +82,8 @@ public class SwitchSceneManager : MonoBehaviour
     /// <param name="positionX">The x position of the camera.</param>
     IEnumerator MoveMainCamera(float positionX)
     {
+        MovingCamreaCoroutineRunning = true;
+        UIManager.instance.CloseWindowUpgradesUI();
         Camera main = Camera.main;
         int direction = main.transform.position.x > positionX ? -1 : 1;
         while (Mathf.Abs(main.transform.position.x - positionX) > 0.05f || Mathf.Abs(main.transform.position.x - positionX) < -0.05f)
@@ -58,6 +91,7 @@ public class SwitchSceneManager : MonoBehaviour
             main.transform.position = new Vector3(main.transform.position.x + direction * 0.1f, main.transform.position.y, main.transform.position.z);
             yield return new WaitForSeconds(0.01f);
         }
+        MovingCamreaCoroutineRunning = false;
     }
 
     /// <summary>
@@ -74,5 +108,16 @@ public class SwitchSceneManager : MonoBehaviour
     public int GetMapUnlocked()
     {
         return mapUnlocked;
+    }
+
+    /// <summary>
+    /// It returns the current scene's index
+    /// </summary>
+    /// <returns>
+    /// The current scene.
+    /// </returns>
+    public int getNowScene()
+    {
+        return nowScene;
     }
 }

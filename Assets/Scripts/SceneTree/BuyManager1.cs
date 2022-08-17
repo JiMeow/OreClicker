@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuyManager : MonoBehaviour
+public class BuyManager1 : MonoBehaviour
 {
-    // [0] -> apple, [1] -> golden apple;
+    // [0] -> apple, [1] -> golden apple, [2] -> stone bar, [3] -> coal bar;
     int[] quantity = new int[5];
     [SerializeField]
     GameObject NPC;
@@ -19,16 +19,16 @@ public class BuyManager : MonoBehaviour
     /// <summary>
     /// if player buy increase chest speed by 50 and player have apple more than 5, then decrease apple quantity by 5 and increase chest speed by 50 percents
     /// </summary>
-    public void BuyChestSpeed50(bool loaded = false)
+    public void BuyChestTreeSpeed50(bool loaded = false)
     {
         if (quantity[0] >= 5 || loaded)
         {
-            if (!UIManager.instance.CanBuyChestSpeed50())
+            if (!UIManager.instance.CanBuyChestTreeSpeed50())
                 return;
             if (!loaded)
             {
                 quantity[0] -= 5;
-                SaveBuy("BuyChestSpeed50", "Apple", 5);
+                SaveBuy("BuyChestTreeSpeed50", "Apple", 5);
             }
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCTreeMoveAndAnimation>().SetSpeedUp(50);
@@ -58,18 +58,18 @@ public class BuyManager : MonoBehaviour
     /// If the player has 25 of the apple, then subtract 25 from the quantity of the apple,
     /// update the UI, and set the NPC's cut delay time to 4
     /// </summary>
-    public void BuyChestAutoCut4(bool loaded = false)
+    public void BuyChestAutoDestroyTree1(bool loaded = false)
     {
         if (quantity[0] >= 25 || loaded)
         {
             if (!loaded)
             {
                 quantity[0] -= 25;
-                SaveBuy("BuyChestAutoCut4", "Apple", 25);
+                SaveBuy("BuyChestAutoDestroyTree1", "Apple", 25);
             }
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCTreeGetItemManager>().SetCutDelayTime(4);
-            UIManager.instance.ShowNextUpgradeChestAutoCut(0);
+            UIManager.instance.ShowNextUpgradeChestAutoDestroyTree(0);
         }
     }
 
@@ -77,18 +77,18 @@ public class BuyManager : MonoBehaviour
     /// If the player has 50 of the apple, then subtract 50 from the quantity of the apple,
     /// update the UI, and set the NPC's cut delay time to 2
     /// </summary>
-    public void BuyChestAutoCut2(bool loaded = false)
+    public void BuyChestAutoDestroyTree2(bool loaded = false)
     {
         if (quantity[0] >= 50 || loaded)
         {
             if (!loaded)
             {
                 quantity[0] -= 50;
-                SaveBuy("BuyChestAutoCut2", "Apple", 50);
+                SaveBuy("BuyChestAutoDestroyTree2", "Apple", 50);
             }
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCTreeGetItemManager>().SetCutDelayTime(2);
-            UIManager.instance.ShowNextUpgradeChestAutoCut(1);
+            UIManager.instance.ShowNextUpgradeChestAutoDestroyTree(1);
         }
     }
 
@@ -96,18 +96,18 @@ public class BuyManager : MonoBehaviour
     /// If the player has 75 of the apple, then subtract 75 from the quantity of the apple,
     /// update the UI, and set the NPC's cut delay time to 1
     /// </summary>
-    public void BuyChestAutoCut1(bool loaded = false)
+    public void BuyChestAutoDestroyTree3(bool loaded = false)
     {
         if (quantity[0] >= 75 || loaded)
         {
             if (!loaded)
             {
                 quantity[0] -= 75;
-                SaveBuy("BuyChestAutoCut1", "Apple", 75);
+                SaveBuy("BuyChestAutoDestroyTree3", "Apple", 75);
             }
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCTreeGetItemManager>().SetCutDelayTime(1);
-            UIManager.instance.ShowNextUpgradeChestAutoCut(2);
+            UIManager.instance.ShowNextUpgradeChestAutoDestroyTree(2);
         }
     }
 
@@ -135,17 +135,17 @@ public class BuyManager : MonoBehaviour
     /// next upgrade, and unlock the next scene
     /// </summary>
     /// <param name="loaded">This is a boolean that is true if the game is loaded.</param>
-    public void BuyGoNextStage(bool loaded = false)
+    public void BuyGoNextStageTree(bool loaded = false)
     {
         if (quantity[1] >= 5 || loaded)
         {
             if (!loaded)
             {
                 quantity[1] -= 5;
-                SaveBuy("BuyGoNextStage", "GoldenApple", 100);
+                SaveBuy("BuyGoNextStageTree", "GoldenApple", 5);
             }
             UIManager.instance.SetQuantityText();
-            UIManager.instance.ShowNextUpgradeGoNextStage(0);
+            UIManager.instance.ShowNextUpgradeGoNextStageTree(0);
             SwitchSceneManager.instance.UnlockNewScene();
         }
     }
@@ -172,10 +172,10 @@ public class BuyManager : MonoBehaviour
     private void LoadBuyItem()
     {
         int amoutOfBuy;
-        amoutOfBuy = SaveGameManager.instance.LoadGameInt("BuyChestSpeed50");
+        amoutOfBuy = SaveGameManager.instance.LoadGameInt("BuyChestTreeSpeed50");
         while (amoutOfBuy > 0)
         {
-            BuyChestSpeed50(loaded: true);
+            BuyChestTreeSpeed50(loaded: true);
             amoutOfBuy--;
         }
         amoutOfBuy = SaveGameManager.instance.LoadGameInt("BuyTreeSpawn50");
@@ -184,25 +184,25 @@ public class BuyManager : MonoBehaviour
             BuyTreeSpawn50(loaded: true);
             amoutOfBuy--;
         }
-        if (SaveGameManager.instance.LoadGameInt("BuyChestAutoCut4") > 0)
+        if (SaveGameManager.instance.LoadGameInt("BuyChestAutoDestroyTree1") > 0)
         {
-            BuyChestAutoCut4(loaded: true);
+            BuyChestAutoDestroyTree1(loaded: true);
         }
-        if (SaveGameManager.instance.LoadGameInt("BuyChestAutoCut2") > 0)
+        if (SaveGameManager.instance.LoadGameInt("BuyChestAutoDestroyTree2") > 0)
         {
-            BuyChestAutoCut2(loaded: true);
+            BuyChestAutoDestroyTree2(loaded: true);
         }
-        if (SaveGameManager.instance.LoadGameInt("BuyChestAutoCut1") > 0)
+        if (SaveGameManager.instance.LoadGameInt("BuyChestAutoDestroyTree3") > 0)
         {
-            BuyChestAutoCut1(loaded: true);
+            BuyChestAutoDestroyTree3(loaded: true);
         }
         if (SaveGameManager.instance.LoadGameInt("BuyGoldenAppleRate") > 0)
         {
             BuyGoldenAppleRate(loaded: true);
         }
-        if (SaveGameManager.instance.LoadGameInt("BuyGoNextStage") > 0)
+        if (SaveGameManager.instance.LoadGameInt("BuyGoNextStageTree") > 0)
         {
-            BuyGoNextStage(loaded: true);
+            BuyGoNextStageTree(loaded: true);
         }
     }
 }

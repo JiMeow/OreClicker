@@ -2,8 +2,10 @@
 
 * change buymanager <-> uimanager //
 
-* opn upgrade show ui of that scene
+* opn upgrade show ui of that scene //
 
-* add new upgrade on scenestone
+* add new upgrade on scenestone //
 
-* edit ui for swap scene in switchscenemanager
+* edit ui for swap scene in switchscenemanager //
+
+* edit buy item on stone scene 

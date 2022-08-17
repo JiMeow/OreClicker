@@ -16,18 +16,35 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject WindowUpgradesUI;
 
+    [Header("Upgrades Window On Each Scene")]
+    [SerializeField]
+    GameObject[] UpgradesWindow;
+
     [Header("Upgrades scene1")]
     [SerializeField]
-    GameObject[] chestSpeed50LevelScales;
+    GameObject[] chestTreeSpeed50LevelScales;
     [SerializeField]
     GameObject[] treeSpawn50LevelScales;
     [SerializeField]
-    GameObject[] UpgradeChestAutoCut;
+    GameObject[] UpgradeChestAutoDestroyTree;
     [SerializeField]
     GameObject[] UpgradeGoldenApple;
 
     [SerializeField]
-    GameObject[] UpgradeGoNextStage;
+    GameObject[] UpgradeGoNextStageTree;
+
+    [Header("Upgrades scene2")]
+    [SerializeField]
+    GameObject[] chestStoneSpeed50LevelScales;
+    [SerializeField]
+    GameObject[] stoneSpawn50LevelScales;
+    [SerializeField]
+    GameObject[] UpgradeChestAutoDestroyStone;
+    [SerializeField]
+    GameObject[] UpgradeGoldenStone;
+
+    [SerializeField]
+    GameObject[] UpgradeGoNextStageStone;
 
 
     bool isScaleUIPhoto;
@@ -105,6 +122,26 @@ public class UIManager : MonoBehaviour
         {
             WindowUpgradesUI.SetActive(true);
         }
+        int nowScene = SwitchSceneManager.instance.getNowScene();
+        for (int i = 0; i < UpgradesWindow.Length; i++)
+        {
+            if (i == nowScene)
+            {
+                UpgradesWindow[i].SetActive(true);
+            }
+            else
+            {
+                UpgradesWindow[i].SetActive(false);
+            }
+        }
+    }
+
+    /// <summary>
+    /// close the window with the upgrades
+    /// </summary>
+    public void CloseWindowUpgradesUI()
+    {
+        WindowUpgradesUI.SetActive(false);
     }
 
 
@@ -117,18 +154,18 @@ public class UIManager : MonoBehaviour
     /// <returns>
     /// a boolean value.
     /// </returns>
-    public bool CanBuyChestSpeed50()
+    public bool CanBuyChestTreeSpeed50()
     {
         /* Checking if scale is not max or if it will max set text to MAX and -. */
-        for (int i = 0; i < chestSpeed50LevelScales.Length - 2; i++)
+        for (int i = 0; i < chestTreeSpeed50LevelScales.Length - 2; i++)
         {
-            GameObject scale = chestSpeed50LevelScales[i];
+            GameObject scale = chestTreeSpeed50LevelScales[i];
             if (scale.activeSelf)
             {
-                if (i == chestSpeed50LevelScales.Length - 3) // last levelgrade
+                if (i == chestTreeSpeed50LevelScales.Length - 3) // last levelgrade
                 {
-                    chestSpeed50LevelScales[i + 1].GetComponent<Text>().text = "MAX";
-                    chestSpeed50LevelScales[i + 2].GetComponent<Text>().text = "-";
+                    chestTreeSpeed50LevelScales[i + 1].GetComponent<Text>().text = "MAX";
+                    chestTreeSpeed50LevelScales[i + 2].GetComponent<Text>().text = "-";
                 }
                 scale.SetActive(false); // hide white show black
                 return true;
@@ -169,13 +206,13 @@ public class UIManager : MonoBehaviour
     /// false, then sets the active state of the next game object in the array to true
     /// </summary>
     /// <param name="nowIndex">The current index of the upgrade chest.</param>
-    public void ShowNextUpgradeChestAutoCut(int nowIndex)
+    public void ShowNextUpgradeChestAutoDestroyTree(int nowIndex)
     {
         for (int i = 0; i <= nowIndex; i++)
         {
-            UpgradeChestAutoCut[i].SetActive(false);
+            UpgradeChestAutoDestroyTree[i].SetActive(false);
         }
-        UpgradeChestAutoCut[nowIndex + 1].SetActive(true);
+        UpgradeChestAutoDestroyTree[nowIndex + 1].SetActive(true);
     }
 
     /// <summary>
@@ -197,12 +234,87 @@ public class UIManager : MonoBehaviour
     /// false, then sets the active state of the next game object in the array to true
     /// </summary>
     /// <param name="nowIndex">The current index of the upgrade chest.</param>
-    public void ShowNextUpgradeGoNextStage(int nowIndex)
+    public void ShowNextUpgradeGoNextStageTree(int nowIndex)
     {
         for (int i = 0; i <= nowIndex; i++)
         {
-            UpgradeGoNextStage[i].SetActive(false);
+            UpgradeGoNextStageTree[i].SetActive(false);
         }
-        UpgradeGoNextStage[nowIndex + 1].SetActive(true);
+        UpgradeGoNextStageTree[nowIndex + 1].SetActive(true);
+    }
+
+
+
+    /// SCENE STONE
+
+    public bool CanBuyChestStoneSpeed50()
+    {
+        /* Checking if scale is not max or if it will max set text to MAX and -. */
+        for (int i = 0; i < chestStoneSpeed50LevelScales.Length - 2; i++)
+        {
+            GameObject scale = chestStoneSpeed50LevelScales[i];
+            if (scale.activeSelf)
+            {
+                if (i == chestStoneSpeed50LevelScales.Length - 3) // last levelgrade
+                {
+                    chestStoneSpeed50LevelScales[i + 1].GetComponent<Text>().text = "MAX";
+                    chestStoneSpeed50LevelScales[i + 2].GetComponent<Text>().text = "-";
+                }
+                scale.SetActive(false); // hide white show black
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public bool CanBuyStoneSpawn50()
+    {
+        /* Checking if scale is not max or if it will max set text to MAX and -. */
+        for (int i = 0; i < stoneSpawn50LevelScales.Length - 2; i++)
+        {
+            GameObject scale = stoneSpawn50LevelScales[i];
+            if (scale.activeSelf)
+            {
+                if (i == stoneSpawn50LevelScales.Length - 3) // last levelgrade
+                {
+                    stoneSpawn50LevelScales[i + 1].GetComponent<Text>().text = "MAX";
+                    stoneSpawn50LevelScales[i + 2].GetComponent<Text>().text = "-";
+                }
+                scale.SetActive(false); // hide white show black
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public void ShowNextUpgradeChestAutoDestroyStone(int nowIndex)
+    {
+        for (int i = 0; i <= nowIndex; i++)
+        {
+            UpgradeChestAutoDestroyStone[i].SetActive(false);
+        }
+        UpgradeChestAutoDestroyStone[nowIndex + 1].SetActive(true);
+    }
+
+
+    public void ShowNextUpgradeGoldenStone(int nowIndex)
+    {
+        for (int i = 0; i <= nowIndex; i++)
+        {
+            UpgradeGoldenStone[i].SetActive(false);
+        }
+        UpgradeGoldenStone[nowIndex + 1].SetActive(true);
+    }
+
+
+    public void ShowNextUpgradeGoNextStageStone(int nowIndex)
+    {
+        for (int i = 0; i <= nowIndex; i++)
+        {
+            UpgradeGoNextStageStone[i].SetActive(false);
+        }
+        UpgradeGoNextStageStone[nowIndex + 1].SetActive(true);
     }
 }

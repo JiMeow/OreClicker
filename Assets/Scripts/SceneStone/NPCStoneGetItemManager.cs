@@ -10,8 +10,8 @@ public class NPCStoneGetItemManager : MonoBehaviour
 
     private void Start()
     {
-        // max int
-        hitDelayTime = 2147483647;
+        // max int (if haven't got value else do nothing)
+        hitDelayTime = hitDelayTime == 0 ? 2147483647 : hitDelayTime;
         NPCmove = GetComponent<NPCStoneMoveAndAnimation>();
     }
 
@@ -97,6 +97,6 @@ public class NPCStoneGetItemManager : MonoBehaviour
     /// <param name="time">The time to delay the hit.</param>
     public void SetHitDelayTime(float time)
     {
-        hitDelayTime = Mathf.Min(time, hitDelayTime);
+        hitDelayTime = time;
     }
 }
