@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     GameObject WindowUpgradesUI;
+    [SerializeField]
+    GameObject WindowShopUI;
 
     [Header("Upgrades Window On Each Scene")]
     [SerializeField]
@@ -41,7 +43,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject[] UpgradeChestAutoDestroyStone;
     [SerializeField]
-    GameObject[] UpgradeGoldenStone;
+    GameObject[] UpgradeAddChestStone;
 
     [SerializeField]
     GameObject[] UpgradeGoNextStageStone;
@@ -121,6 +123,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
+            WindowShopUI.SetActive(false);
             WindowUpgradesUI.SetActive(true);
         }
         int nowScene = SwitchSceneManager.instance.getNowScene();
@@ -145,6 +148,29 @@ public class UIManager : MonoBehaviour
         WindowUpgradesUI.SetActive(false);
     }
 
+    /// <summary>
+    /// show the window with the shop if it is not already shown else hide it
+    /// </summary>
+    public void ShowWindowShopUI()
+    {
+        if (WindowShopUI.activeSelf)
+        {
+            WindowShopUI.SetActive(false);
+        }
+        else
+        {
+            WindowShopUI.SetActive(true);
+            WindowUpgradesUI.SetActive(false);
+        }
+    }
+
+    /// <summary>
+    /// close the window with the shop
+    /// </summary>
+    public void CloseWindowShopUI()
+    {
+        WindowShopUI.SetActive(false);
+    }
 
     //// SCENE TREE
     //// SCENE TREE
@@ -329,13 +355,13 @@ public class UIManager : MonoBehaviour
     /// It takes an integer as an argument and sets the active state of the game objects in the array to
     /// false, then sets the active state of the next game object in the array to true
     /// </summary>
-    public void ShowNextUpgradeGoldenStone(int nowIndex)
+    public void ShowNextUpgradeAddChestStone(int nowIndex)
     {
         for (int i = 0; i <= nowIndex; i++)
         {
-            UpgradeGoldenStone[i].SetActive(false);
+            UpgradeAddChestStone[i].SetActive(false);
         }
-        UpgradeGoldenStone[nowIndex + 1].SetActive(true);
+        UpgradeAddChestStone[nowIndex + 1].SetActive(true);
     }
 
     /// <summary>

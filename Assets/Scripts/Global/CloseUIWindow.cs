@@ -16,8 +16,9 @@ public class CloseUIWindow : MonoBehaviour
             }
             else
             {
-                // else hide the window with the upgrades
-                UIManager.instance.ShowWindowUpgradesUI();
+                // else hide the window ui
+                UIManager.instance.CloseWindowShopUI();
+                UIManager.instance.CloseWindowUpgradesUI();
             }
         }
     }

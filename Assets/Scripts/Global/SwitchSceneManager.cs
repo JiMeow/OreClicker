@@ -81,13 +81,14 @@ public class SwitchSceneManager : MonoBehaviour
     }
 
     /// <summary>
-    /// It moves the main camera to the position specified by the parameter
+    /// It moves the main camera to the position specified by the parameter and also close windowUI
     /// </summary>
     /// <param name="positionX">The x position of the camera.</param>
     IEnumerator MoveMainCamera(float positionX)
     {
         MovingCamreaCoroutineRunning = true;
         UIManager.instance.CloseWindowUpgradesUI();
+        UIManager.instance.CloseWindowShopUI();
         Camera main = Camera.main;
         int direction = main.transform.position.x > positionX ? -1 : 1;
         while (Mathf.Abs(main.transform.position.x - positionX) > 0.05f || Mathf.Abs(main.transform.position.x - positionX) < -0.05f)

@@ -44,6 +44,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850ef19a96d780046882e05a673d3ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &515721748431429026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 271575491491032427}
+  - component: {fileID: 8140190888217308216}
+  m_Layer: 0
+  m_Name: ShopManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &271575491491032427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515721748431429026}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6016259230585508157}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8140190888217308216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515721748431429026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8bf01ec08144b4f9818076f050073d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: 0
+  allTrade:
+  - {fileID: 0}
+  - {fileID: 0}
+  debugTrade:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2842699904362836905
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapUnlocked: 0
-  scene: 0
 --- !u!1 &3960372577351256796
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +266,7 @@ Transform:
   - {fileID: 9083317357445821448}
   - {fileID: 6515844952627194327}
   - {fileID: 7595240632123551965}
+  - {fileID: 271575491491032427}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -373,3 +426,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d094a46e0d075b741b3c876063761750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NPC: {fileID: 0}

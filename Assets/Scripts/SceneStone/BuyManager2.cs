@@ -107,39 +107,41 @@ public class BuyManager2 : MonoBehaviour
         }
     }
 
-    // /// <summary>
-    // /// </summary>
-    // public void BuyGoldenAppleRate(bool loaded = false)
-    // {
-    //     if (quantity[0] >= 90 || loaded)
-    //     {
-    //         if (!loaded)
-    //         {
-    //             quantity[0] -= 90;
-    //             SaveBuy("BuyGoldenAppleRate", "Apple", 90);
-    //         }
-    //         UIManager.instance.SetQuantityText();
-    //         SpawnManager.instance.SetCanDropGoldenApple();
-    //         UIManager.instance.ShowNextUpgradeGoldenApple(0);
-    //     }
-    // }
+    /// <summary>
+    //// need fixed (no feature)
+    /// </summary>
+    public void BuyAddChestStone(bool loaded = false)
+    {
+        if (quantity[2] >= 75 || loaded)
+        {
+            if (!loaded)
+            {
+                quantity[2] -= 75;
+                SaveBuy("BuyAddChestStone", "StoneBar", 75);
+            }
+            UIManager.instance.SetQuantityText();
+            UIManager.instance.ShowNextUpgradeAddChestStone(0);
+        }
+    }
 
     /// <summary>
+    /// must use quantity[3] need fixed
     /// </summary>
-    // public void BuyGoNextStageStone(bool loaded = false)
-    // {
-    //     if (quantity[3] >= 50 || loaded)
-    //     {
-    //         if (!loaded)
-    //         {
-    //             quantity[3] -= 50;
-    //             SaveBuy("BuyGoNextStageStone", "CoalBar", 50);
-    //         }
-    //         UIManager.instance.SetQuantityText();
-    //         UIManager.instance.ShowNextUpgradeGoNextStageStone(0);
-    //         SwitchSceneManager.instance.UnlockNewScene();
-    //     }
-    // }
+    public void BuyGoNextStageStone(bool loaded = false)
+    {
+        if (quantity[2] >= 50 || loaded)
+        {
+            if (!loaded)
+            {
+                quantity[2] -= 50;
+                SaveBuy("BuyGoNextStageStone", "StoneBar", 50);
+                // SaveBuy("BuyGoNextStageStone", "CoalBar", 50);
+            }
+            UIManager.instance.SetQuantityText();
+            UIManager.instance.ShowNextUpgradeGoNextStageStone(0);
+            // SwitchSceneManager.instance.UnlockNewScene();
+        }
+    }
 
     /// <summary>
     /// This function takes in a string for the item name, a string for the money type, and an int for
@@ -187,13 +189,13 @@ public class BuyManager2 : MonoBehaviour
         {
             BuyChestAutoDestroyStone3(loaded: true);
         }
-        // if (SaveGameManager.instance.LoadGameInt("BuyGoldenAppleRate") > 0)
-        // {
-        //     BuyGoldenAppleRate(loaded: true);
-        // }
-        // if (SaveGameManager.instance.LoadGameInt("BuyGoNextStageStone") > 0)
-        // {
-        //     BuyGoNextStageStone(loaded: true);
-        // }
+        if (SaveGameManager.instance.LoadGameInt("BuyAddChestStone") > 0)
+        {
+            BuyAddChestStone(loaded: true);
+        }
+        if (SaveGameManager.instance.LoadGameInt("BuyGoNextStageStone") > 0)
+        {
+            BuyGoNextStageStone(loaded: true);
+        }
     }
 }

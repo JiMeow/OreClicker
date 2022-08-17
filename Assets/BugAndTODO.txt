@@ -8,4 +8,8 @@
 
 * edit ui for swap scene in switchscenemanager //
 
-* edit buy item on stone scene 
+* make trade in shop and for debug //
+
+* close shop was bug //
+
+* edit buy item on stone scene (edit next stone stage and add chest stone)

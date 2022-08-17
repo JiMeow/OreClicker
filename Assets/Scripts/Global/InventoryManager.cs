@@ -41,6 +41,21 @@ public class InventoryManager : MonoBehaviour
         UIManager.instance.SetQuantityText();
     }
 
+    /// <summary>
+    /// This function adds an item to the inventory
+    /// </summary>
+    /// <param name="itemname">the name of the item to add</param>
+    /// <param name="value">the amount of the item to add</param>
+    public void AddItem(string itemname, int value = 1)
+    {
+        int index = NameToIndex[itemname];
+        quantity[index] += value;
+
+        // save the quantity of the item to playerprefs
+        SaveGameManager.instance.SaveGameInt(itemname, valueInt: value, add: true);
+
+        UIManager.instance.SetQuantityText();
+    }
 
     /// <summary>
     /// It returns the quantity of the items in the array.
