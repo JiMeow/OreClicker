@@ -97,15 +97,6 @@ public class NPCStoneMoveAndAnimation : MonoBehaviour
     }
 
     /// <summary>
-    /// It takes a float value (percent) then increases the speed of the NPC by that percent
-    /// </summary>
-    /// <param name="percent">The percentage of speed increase.</param>
-    public void SetSpeedUp(float percent)
-    {
-        NpcSpeed *= (1f + percent / 100f);
-    }
-
-    /// <summary>
     /// If chest is hitting stone, then return true else return false
     /// </summary>
     /// <returns>
@@ -140,7 +131,7 @@ public class NPCStoneMoveAndAnimation : MonoBehaviour
                 minimumDistanceStone = stone;
             }
         }
-        if (minimumDistanceStone != null)
+        if (minimumDistanceStone != null && minimumDistance < 0.25f)
         {
             minimumDistanceStone.GetComponent<StoneBrickManager>().HitStone(5);
             whenStopHitStone = false;
@@ -159,5 +150,35 @@ public class NPCStoneMoveAndAnimation : MonoBehaviour
     private float EuclideanDistance(Vector3 a, Vector3 b)
     {
         return Mathf.Sqrt(Mathf.Pow(a.x - b.x, 2) + Mathf.Pow(a.y - b.y, 2));
+    }
+
+
+    /// <summary>
+    /// It takes a float value (percent) then increases the speed of the NPC by that percent
+    /// </summary>
+    /// <param name="percent">The percentage of speed increase.</param>
+    public void SetSpeedUp(float percent)
+    {
+        NpcSpeed *= (1f + percent / 100f);
+    }
+
+    /// <summary>
+    /// It returns the value of the variable NpcSpeed.
+    /// </summary>
+    /// <returns>
+    /// The value of the variable NpcSpeed.
+    /// </returns>
+    public float GetSpeed()
+    {
+        return NpcSpeed;
+    }
+
+    /// <summary>
+    /// This function sets the speed of the NPC
+    /// </summary>
+    /// <param name="speed">The speed at which the NPC will move.</param>
+    public void SetSpeed(float speed)
+    {
+        NpcSpeed = speed;
     }
 }

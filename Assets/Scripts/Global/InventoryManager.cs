@@ -22,6 +22,7 @@ public class InventoryManager : MonoBehaviour
         NameToIndex.Add("Apple", 0);
         NameToIndex.Add("GoldenApple", 1);
         NameToIndex.Add("StoneBar", 2);
+        NameToIndex.Add("CoalBar", 3);
         LoadInventory();
     }
 
@@ -42,7 +43,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     /// <summary>
-    /// This function adds an item to the inventory
+    /// This function adds an item to the inventory and make item not overflow
     /// </summary>
     /// <param name="itemname">the name of the item to add</param>
     /// <param name="value">the amount of the item to add</param>
@@ -50,6 +51,10 @@ public class InventoryManager : MonoBehaviour
     {
         int index = NameToIndex[itemname];
         quantity[index] += value;
+        if (quantity[index] > 9999)
+        {
+            quantity[index] = 9999;
+        }
 
         // save the quantity of the item to playerprefs
         SaveGameManager.instance.SaveGameInt(itemname, valueInt: value, add: true);
@@ -73,6 +78,7 @@ public class InventoryManager : MonoBehaviour
         quantity[0] = SaveGameManager.instance.LoadGameInt("Apple");
         quantity[1] = SaveGameManager.instance.LoadGameInt("GoldenApple");
         quantity[2] = SaveGameManager.instance.LoadGameInt("StoneBar");
+        quantity[3] = SaveGameManager.instance.LoadGameInt("CoalBar");
         UIManager.instance.SetQuantityText();
     }
 }

@@ -43,8 +43,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject[] UpgradeChestAutoDestroyStone;
     [SerializeField]
+    GameObject[] UpgradeCoal;
+    [SerializeField]
     GameObject[] UpgradeAddChestStone;
-
     [SerializeField]
     GameObject[] UpgradeGoNextStageStone;
 
@@ -315,7 +316,7 @@ public class UIManager : MonoBehaviour
     /// If StoneSpawn upgrade is not at max level, it increases the upgrade level by 1 (add scale) and returns true
     /// then if it was max level, change the upgrade text to 'MAX' and value to '-', but if not max level return false
     /// </summary>
-    public bool CanBuyStoneSpawn30()
+    public bool CanBuyStoneSpawn40()
     {
         /* Checking if scale is not max or if it will max set text to MAX and -. */
         for (int i = 0; i < stoneSpawn50LevelScales.Length - 2; i++)
@@ -350,6 +351,19 @@ public class UIManager : MonoBehaviour
         UpgradeChestAutoDestroyStone[nowIndex + 1].SetActive(true);
     }
 
+    /// <summary>
+    /// It takes an integer as a parameter and then sets the active state of the game objects in the
+    /// UpgradeCoal array to false, except for the one at the index of the integer parameter
+    /// </summary>
+    /// <param name="nowIndex">the current index of the upgrade</param>
+    public void ShowNextUpgradeCoal(int nowIndex)
+    {
+        for (int i = 0; i <= nowIndex; i++)
+        {
+            UpgradeCoal[i].SetActive(false);
+        }
+        UpgradeCoal[nowIndex + 1].SetActive(true);
+    }
 
     /// <summary>
     /// It takes an integer as an argument and sets the active state of the game objects in the array to

@@ -87,4 +87,24 @@ public class NPCStoneGetItemManager : MonoBehaviour
     {
         hitDelayTime = time;
     }
+
+    /// <summary>
+    /// This function returns the value of the hitDelayTime variable
+    /// </summary>
+    /// <returns>
+    /// The hitDelayTime variable.
+    /// </returns>
+    public float GetHitDelayTime()
+    {
+        return hitDelayTime;
+    }
+
+    /// <summary>
+    /// This function sets the hit delay time to the time passed in
+    /// </summary>
+    /// <param name="time">The time in seconds that the player will be invincible for.</param>
+    public void SetHitDelayTime(int time)
+    {
+        hitDelayTime = time;
+    }
 }

@@ -35,21 +35,21 @@ public class BuyManager2 : MonoBehaviour
     }
 
     /// <summary>
-    /// if player buy stoneSpawn30 and player have stone bar more than 10, then decrease stone bar quantity by 10 and increase stoneSpawn time by 30 percents
+    /// if player buy stoneSpawn40 and player have stone bar more than 10, then decrease stone bar quantity by 10 and increase stoneSpawn time by 40 percents
     /// </summary>
-    public void BuyStoneSpawn30(bool loaded = false)
+    public void BuyStoneSpawn40(bool loaded = false)
     {
         if (quantity[2] >= 10 || loaded)
         {
-            if (!UIManager.instance.CanBuyStoneSpawn30())
+            if (!UIManager.instance.CanBuyStoneSpawn40())
                 return;
             if (!loaded)
             {
                 quantity[2] -= 10;
-                SaveBuy("BuyStoneSpawn30", "StoneBar", 10);
+                SaveBuy("BuyStoneSpawn40", "StoneBar", 10);
             }
             UIManager.instance.SetQuantityText();
-            SpawnManager.instance.SetStoneSpawnTimeDown(30);
+            SpawnManager.instance.SetStoneSpawnTimeDown(40);
         }
     }
 
@@ -94,12 +94,12 @@ public class BuyManager2 : MonoBehaviour
     /// </summary>
     public void BuyChestAutoDestroyStone3(bool loaded = false)
     {
-        if (quantity[2] >= 25 || loaded)
+        if (quantity[3] >= 15 || loaded)
         {
             if (!loaded)
             {
-                quantity[2] -= 25;
-                SaveBuy("BuyChestAutoDestroyStone3", "StoneBar", 25);
+                quantity[2] -= 15;
+                SaveBuy("BuyChestAutoDestroyStone3", "CoalBar", 15);
             }
             UIManager.instance.SetQuantityText();
             NPC.GetComponent<NPCStoneGetItemManager>().SetHitDelayTime(5);
@@ -108,34 +108,58 @@ public class BuyManager2 : MonoBehaviour
     }
 
     /// <summary>
-    //// need fixed (no feature)
+    /// if player buy CoalDropRate and player have stone bar more than 30, then decrease stone bar quantity by 30 and set stone can drop coal bar
     /// </summary>
-    public void BuyAddChestStone(bool loaded = false)
+    public void BuyCoalDropRate(bool loaded = false)
     {
-        if (quantity[2] >= 75 || loaded)
+        if (quantity[2] >= 30 || loaded)
         {
             if (!loaded)
             {
-                quantity[2] -= 75;
-                SaveBuy("BuyAddChestStone", "StoneBar", 75);
+                quantity[2] -= 30;
+                SaveBuy("BuyCoalDropRate", "StoneBar", 30);
             }
             UIManager.instance.SetQuantityText();
+            SpawnManager.instance.SetCanDropCoal();
+            UIManager.instance.ShowNextUpgradeCoal(0);
+            ShowUnlockedOre.instance.UnlockOre(4);
+        }
+    }
+
+
+    /// <summary>
+    /// if player buy AddChestStone and player have coal bar more than 25, then decrease coal bar quantity by 25 and add 1 chest stone that dublicated first chest stone but little slower
+    /// </summary>
+    public void BuyAddChestStone(bool loaded = false)
+    {
+        if (quantity[3] >= 25 || loaded)
+        {
+            if (!loaded)
+            {
+                quantity[3] -= 25;
+                SaveBuy("BuyAddChestStone", "CoalBar", 25);
+            }
+            UIManager.instance.SetQuantityText();
+
+            GameObject newNPC = Instantiate(NPC, NPC.transform.position, Quaternion.identity);
+            newNPC.GetComponent<NPCStoneMoveAndAnimation>().SetSpeed(NPC.GetComponent<NPCStoneMoveAndAnimation>().GetSpeed() * 0.66f);
+            newNPC.GetComponent<NPCStoneGetItemManager>().SetHitDelayTime(NPC.GetComponent<NPCStoneGetItemManager>().GetHitDelayTime());
+
             UIManager.instance.ShowNextUpgradeAddChestStone(0);
         }
     }
 
     /// <summary>
-    /// must use quantity[3] need fixed
+    /// must use add new Scene (Now is ENDGAME)
     /// </summary>
     public void BuyGoNextStageStone(bool loaded = false)
     {
-        if (quantity[2] >= 50 || loaded)
+        if (quantity[3] >= 45 || loaded)
         {
             if (!loaded)
             {
-                quantity[2] -= 50;
-                SaveBuy("BuyGoNextStageStone", "StoneBar", 50);
-                // SaveBuy("BuyGoNextStageStone", "CoalBar", 50);
+                quantity[3] -= 45;
+                SaveBuy("BuyGoNextStageStone", "CoalBar", 45);
             }
             UIManager.instance.SetQuantityText();
             UIManager.instance.ShowNextUpgradeGoNextStageStone(0);
@@ -171,10 +195,10 @@ public class BuyManager2 : MonoBehaviour
             BuyChestStoneSpeed50(loaded: true);
             amoutOfBuy--;
         }
-        amoutOfBuy = SaveGameManager.instance.LoadGameInt("BuyStoneSpawn30");
+        amoutOfBuy = SaveGameManager.instance.LoadGameInt("BuyStoneSpawn40");
         while (amoutOfBuy > 0)
         {
-            BuyStoneSpawn30(loaded: true);
+            BuyStoneSpawn40(loaded: true);
             amoutOfBuy--;
         }
         if (SaveGameManager.instance.LoadGameInt("BuyChestAutoDestroyStone1") > 0)
@@ -188,6 +212,10 @@ public class BuyManager2 : MonoBehaviour
         if (SaveGameManager.instance.LoadGameInt("BuyChestAutoDestroyStone3") > 0)
         {
             BuyChestAutoDestroyStone3(loaded: true);
+        }
+        if (SaveGameManager.instance.LoadGameInt("BuyCoalDropRate") > 0)
+        {
+            BuyCoalDropRate(loaded: true);
         }
         if (SaveGameManager.instance.LoadGameInt("BuyAddChestStone") > 0)
         {

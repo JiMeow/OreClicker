@@ -6,8 +6,11 @@ public class StoneBrickManager : MonoBehaviour
 {
     [SerializeField]
     GameObject stoneBarPrefab;
+    [SerializeField]
+    GameObject coalBarPrefab;
     public int durable; // 5
     public float dropRate;
+    int coalDropRate;
     bool notDestroyed = true;
 
     /// <summary>
@@ -69,13 +72,17 @@ public class StoneBrickManager : MonoBehaviour
     }
 
     /// <summary>
-    /// It spawns an Item gameobject position. (StoneBar)
+    /// It spawns an Item gameobject position. (StoneBar) or (Coal) at the stone's position.
     /// </summary>
     private void DropItem()
     {
-        Vector2 spawnPoint = new Vector2(transform.position.x, transform.position.y);
-        int randomGoldApple = Random.Range(0, 100);
-        if (randomGoldApple < dropRate)
+        Vector3 spawnPoint = new Vector3(transform.position.x, transform.position.y, -1f);
+        int randomDrop = Random.Range(0, 100);
+        if (randomDrop < coalDropRate)
+        {
+            Instantiate(coalBarPrefab, spawnPoint, Quaternion.identity);
+        }
+        else if (randomDrop < dropRate)
         {
             Instantiate(stoneBarPrefab, spawnPoint, Quaternion.identity);
         }
@@ -94,5 +101,14 @@ public class StoneBrickManager : MonoBehaviour
             yield return null;
         }
         Destroy(gameObject);
+    }
+
+    /// <summary>
+    /// It sets the coalDropRate to the value of the parameter.
+    /// </summary>
+    /// <param name="coalDropRate">The rate at which coal is dropped.</param>
+    public void SetCoalDropRate(int coalDropRate)
+    {
+        this.coalDropRate = coalDropRate;
     }
 }

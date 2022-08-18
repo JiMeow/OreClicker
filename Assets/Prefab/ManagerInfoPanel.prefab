@@ -316,13 +316,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treePrefab: {fileID: 0}
   isCanDropGoldenApple: 0
-  goldenAppleDropRate: 0
+  goldenAppleDropRate: 2
   maxTreeInScene: 25
-  spawnTreeTime: 0
+  spawnTreeTime: 5
   countTreeTime: 0
   stonePrefab: {fileID: 0}
+  isCanDropCoal: 0
+  coalDropRate: 25
   maxStoneInScene: 25
-  spawnStoneTime: 0
+  spawnStoneTime: 10
   countStoneTime: 0
 --- !u!1 &6376709987322542259
 GameObject:

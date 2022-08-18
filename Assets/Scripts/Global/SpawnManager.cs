@@ -22,6 +22,8 @@ public class SpawnManager : MonoBehaviour
     [Header("Spawn Stone Settings")]
     [SerializeField]
     GameObject stonePrefab;
+    public bool isCanDropCoal;
+    public int coalDropRate;
     public int maxStoneInScene = 25;
     public float spawnStoneTime;
     public float countStoneTime;
@@ -38,6 +40,7 @@ public class SpawnManager : MonoBehaviour
     private void Start()
     {
         goldenAppleDropRate = 2;
+        coalDropRate = 25;
         spawnTreeTime = 5.0f;
         spawnStoneTime = 10.0f;
     }
@@ -108,6 +111,12 @@ public class SpawnManager : MonoBehaviour
 
         float multipleScale = Random.Range(1f, 1.25f);
         newStone.transform.localScale *= multipleScale;
+
+        // if stone can drop coal, then set it to can drop coal
+        if (isCanDropCoal)
+        {
+            newStone.GetComponent<StoneBrickManager>().SetCoalDropRate(coalDropRate);
+        }
     }
 
     /// <summary>
@@ -134,5 +143,12 @@ public class SpawnManager : MonoBehaviour
     public void SetCanDropGoldenApple()
     {
         isCanDropGoldenApple = true;
+    }
+    /// <summary>
+    /// This function sets the boolean variable isCanDropCoal to true
+    /// </summary>
+    public void SetCanDropCoal()
+    {
+        isCanDropCoal = true;
     }
 }

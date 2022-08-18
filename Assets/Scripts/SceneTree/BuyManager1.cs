@@ -127,6 +127,7 @@ public class BuyManager1 : MonoBehaviour
             UIManager.instance.SetQuantityText();
             SpawnManager.instance.SetCanDropGoldenApple();
             UIManager.instance.ShowNextUpgradeGoldenApple(0);
+            ShowUnlockedOre.instance.UnlockOre(2);
         }
     }
 
@@ -147,6 +148,7 @@ public class BuyManager1 : MonoBehaviour
             UIManager.instance.SetQuantityText();
             UIManager.instance.ShowNextUpgradeGoNextStageTree(0);
             SwitchSceneManager.instance.UnlockNewScene();
+            ShowUnlockedOre.instance.UnlockOre(3);
         }
     }
 

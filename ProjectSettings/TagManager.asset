@@ -13,6 +13,7 @@ TagManager:
   - UpgradeLevel1
   - Stone
   - StoneBar
+  - CoalBar
   layers:
   - Default
   - TransparentFX

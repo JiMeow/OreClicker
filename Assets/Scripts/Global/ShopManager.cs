@@ -59,6 +59,19 @@ public class ShopManager : MonoBehaviour
     }
 
     /// <summary>
+    /// If the player has 15 stone bar, remove 15 stone bar from the inventory and add 1 coal bar to the
+    /// inventory
+    /// </summary>
+    public void TradeStoneBarToCoalBar()
+    {
+        if (quantity[2] >= 15)
+        {
+            quantity[2] -= 15;
+            InventoryManager.instance.AddItem("CoalBar", 1);
+        }
+    }
+
+    /// <summary>
     /// This function free adds 10 Apple to the inventory
     /// </summary>
     public void DebugApple()

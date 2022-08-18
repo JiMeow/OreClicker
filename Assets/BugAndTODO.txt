@@ -12,4 +12,15 @@
 
 * close shop was bug //
 
-* edit buy item on stone scene (edit next stone stage and add chest stone)
+
+* add 1 more scale at spawn buy upgrade by coal //
+
+* add unlock spawn coal item in upgrade on stone scene //
+
+* chest auto hit stone last level, unlock new map, add new chest, need coal //
+
+* hide ore that player not found //
+
+* edit buy item on stone scene
+** add chest stone //
+** next stone stage  ? no neext stage yet(coming soon) 
