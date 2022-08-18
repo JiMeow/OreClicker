@@ -27,6 +27,7 @@ public class BuyManager1 : MonoBehaviour
                 return;
             if (!loaded)
             {
+                SoundManager.instance.PlayUpgradeSuccessSound();
                 quantity[0] -= 5;
                 SaveBuy("BuyChestTreeSpeed50", "Apple", 5);
             }
@@ -46,6 +47,7 @@ public class BuyManager1 : MonoBehaviour
                 return;
             if (!loaded)
             {
+                SoundManager.instance.PlayUpgradeSuccessSound();
                 quantity[0] -= 10;
                 SaveBuy("BuyTreeSpawn50", "Apple", 10);
             }
@@ -64,6 +66,7 @@ public class BuyManager1 : MonoBehaviour
         {
             if (!loaded)
             {
+                SoundManager.instance.PlayUpgradeSuccessSound();
                 quantity[0] -= 25;
                 SaveBuy("BuyChestAutoDestroyTree1", "Apple", 25);
             }
@@ -83,6 +86,7 @@ public class BuyManager1 : MonoBehaviour
         {
             if (!loaded)
             {
+                SoundManager.instance.PlayUpgradeSuccessSound();
                 quantity[0] -= 50;
                 SaveBuy("BuyChestAutoDestroyTree2", "Apple", 50);
             }
@@ -102,6 +106,7 @@ public class BuyManager1 : MonoBehaviour
         {
             if (!loaded)
             {
+                SoundManager.instance.PlayUpgradeSuccessSound();
                 quantity[0] -= 75;
                 SaveBuy("BuyChestAutoDestroyTree3", "Apple", 75);
             }
@@ -121,6 +126,7 @@ public class BuyManager1 : MonoBehaviour
         {
             if (!loaded)
             {
+                SoundManager.instance.PlayUpgradeSuccessSound();
                 quantity[0] -= 90;
                 SaveBuy("BuyGoldenAppleRate", "Apple", 90);
             }
@@ -142,6 +148,7 @@ public class BuyManager1 : MonoBehaviour
         {
             if (!loaded)
             {
+                SoundManager.instance.PlayUpgradeSuccessSound();
                 quantity[1] -= 5;
                 SaveBuy("BuyGoNextStageTree", "GoldenApple", 5);
             }

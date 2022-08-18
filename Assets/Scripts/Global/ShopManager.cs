@@ -42,6 +42,7 @@ public class ShopManager : MonoBehaviour
         {
             quantity[0] -= 150;
             InventoryManager.instance.AddItem("GoldenApple", 1);
+            SoundManager.instance.PlayUpgradeSuccessSound();
         }
     }
 
@@ -55,6 +56,7 @@ public class ShopManager : MonoBehaviour
         {
             quantity[0] -= 100;
             InventoryManager.instance.AddItem("StoneBar", 1);
+            SoundManager.instance.PlayUpgradeSuccessSound();
         }
     }
 
@@ -68,6 +70,7 @@ public class ShopManager : MonoBehaviour
         {
             quantity[2] -= 15;
             InventoryManager.instance.AddItem("CoalBar", 1);
+            SoundManager.instance.PlayUpgradeSuccessSound();
         }
     }
 

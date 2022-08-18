@@ -18,6 +18,8 @@ public class StoneManager : MonoBehaviour
             other.gameObject.GetComponent<NPCStoneGetItemManager>().GetItem(gameObject);
             other.gameObject.GetComponent<NPCStoneMoveAndAnimation>().SetEatingAnimation();
             Destroy(gameObject);
+            if (SwitchSceneManager.instance.getNowScene() == 1)
+                SoundManager.instance.PlayPickUpItem();
         }
     }
 

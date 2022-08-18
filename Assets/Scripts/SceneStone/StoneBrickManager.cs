@@ -37,9 +37,10 @@ public class StoneBrickManager : MonoBehaviour
             DropItem();
             StartCoroutine(TransparentThisGameObject());
         }
-        else
+        else if (durable > 0)
         {
             ShakeObject();
+            SoundManager.instance.PlayHitStoneSound();
         }
     }
 
@@ -86,6 +87,7 @@ public class StoneBrickManager : MonoBehaviour
         {
             Instantiate(stoneBarPrefab, spawnPoint, Quaternion.identity);
         }
+        SoundManager.instance.PlayStoneWasDestroyedSound();
     }
 
     /// <summary>

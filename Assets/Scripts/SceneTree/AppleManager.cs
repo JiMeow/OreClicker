@@ -40,6 +40,8 @@ public class AppleManager : MonoBehaviour
             other.gameObject.GetComponent<NPCTreeGetItemManager>().GetItem(gameObject);
             other.gameObject.GetComponent<NPCTreeMoveAndAnimation>().SetEatingAnimation();
             Destroy(gameObject);
+            if (SwitchSceneManager.instance.getNowScene() == 0)
+                SoundManager.instance.PlayPickUpItem();
         }
     }
 

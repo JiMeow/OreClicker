@@ -267,6 +267,7 @@ Transform:
   - {fileID: 6515844952627194327}
   - {fileID: 7595240632123551965}
   - {fileID: 271575491491032427}
+  - {fileID: 1726602206197519590}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -429,3 +430,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
+--- !u!1 &8584345873528671428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1726602206197519590}
+  - component: {fileID: 511528538159562476}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1726602206197519590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8584345873528671428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6016259230585508157}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &511528538159562476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8584345873528671428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad5f58429fbb91e44a447cb0190ac2b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chopTreeSound: {fileID: 2309318800011110822, guid: cfb204e14c010c04892b2b867f648543, type: 3}
+  treeWasCuttedSound: {fileID: 8311405265925183440, guid: 8a1976abbe1b2b9459a8b2b942ed4f3c, type: 3}
+  hitStoneSound: {fileID: 8486775904560045546, guid: 57430899ea146d046b68ab141dcb2f05, type: 3}
+  stoneWasDestroyedSound: {fileID: 7205419237253151175, guid: 50c0942376675474a8491e5aff102e6e, type: 3}
+  pickUpItem: {fileID: 578386289812044752, guid: 399eba60d7de2ad45b0d6365ede8a236, type: 3}

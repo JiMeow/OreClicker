@@ -27,6 +27,7 @@ public class BuyManager2 : MonoBehaviour
             if (!loaded)
             {
                 quantity[2] -= 10;
+                SoundManager.instance.PlayUpgradeSuccessSound();
                 SaveBuy("BuyChestStoneSpeed50", "StoneBar", 10);
             }
             UIManager.instance.SetQuantityText();
@@ -46,6 +47,7 @@ public class BuyManager2 : MonoBehaviour
             if (!loaded)
             {
                 quantity[2] -= 10;
+                SoundManager.instance.PlayUpgradeSuccessSound();
                 SaveBuy("BuyStoneSpawn40", "StoneBar", 10);
             }
             UIManager.instance.SetQuantityText();
@@ -63,6 +65,7 @@ public class BuyManager2 : MonoBehaviour
             if (!loaded)
             {
                 quantity[2] -= 25;
+                SoundManager.instance.PlayUpgradeSuccessSound();
                 SaveBuy("BuyChestAutoDestroyStone1", "StoneBar", 25);
             }
             UIManager.instance.SetQuantityText();
@@ -81,6 +84,7 @@ public class BuyManager2 : MonoBehaviour
             if (!loaded)
             {
                 quantity[2] -= 25;
+                SoundManager.instance.PlayUpgradeSuccessSound();
                 SaveBuy("BuyChestAutoDestroyStone2", "StoneBar", 25);
             }
             UIManager.instance.SetQuantityText();
@@ -98,7 +102,8 @@ public class BuyManager2 : MonoBehaviour
         {
             if (!loaded)
             {
-                quantity[2] -= 15;
+                quantity[3] -= 15;
+                SoundManager.instance.PlayUpgradeSuccessSound();
                 SaveBuy("BuyChestAutoDestroyStone3", "CoalBar", 15);
             }
             UIManager.instance.SetQuantityText();
@@ -117,6 +122,7 @@ public class BuyManager2 : MonoBehaviour
             if (!loaded)
             {
                 quantity[2] -= 30;
+                SoundManager.instance.PlayUpgradeSuccessSound();
                 SaveBuy("BuyCoalDropRate", "StoneBar", 30);
             }
             UIManager.instance.SetQuantityText();
@@ -137,6 +143,7 @@ public class BuyManager2 : MonoBehaviour
             if (!loaded)
             {
                 quantity[3] -= 25;
+                SoundManager.instance.PlayUpgradeSuccessSound();
                 SaveBuy("BuyAddChestStone", "CoalBar", 25);
             }
             UIManager.instance.SetQuantityText();
@@ -159,6 +166,7 @@ public class BuyManager2 : MonoBehaviour
             if (!loaded)
             {
                 quantity[3] -= 45;
+                SoundManager.instance.PlayUpgradeSuccessSound();
                 SaveBuy("BuyGoNextStageStone", "CoalBar", 45);
             }
             UIManager.instance.SetQuantityText();

@@ -36,9 +36,10 @@ public class TreeCutManager : MonoBehaviour
             DropItem();
             StartCoroutine(TransparentThisGameObject());
         }
-        else
+        else if (durable > 0)
         {
             ShakeObject();
+            SoundManager.instance.PlayChopTreeSound();
         }
     }
 
@@ -76,6 +77,7 @@ public class TreeCutManager : MonoBehaviour
     /// </summary>
     private void DropItem()
     {
+        SoundManager.instance.PlayTreeWasCuttedSound();
         Vector2 spawnPoint = new Vector2(transform.position.x, transform.position.y);
         int randomGoldApple = Random.Range(0, 100);
         if (randomGoldApple < dropGoldenAppleRate)
@@ -86,6 +88,7 @@ public class TreeCutManager : MonoBehaviour
         {
             Instantiate(applePrefab, spawnPoint, Quaternion.identity);
         }
+
     }
 
     /// <summary>
