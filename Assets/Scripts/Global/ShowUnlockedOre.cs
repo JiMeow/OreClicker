@@ -51,7 +51,7 @@ public class ShowUnlockedOre : MonoBehaviour
     /// <param name="index">The index of the ore to unlock.</param>
     public void UnlockOre(int index)
     {
-        unlocked = index;
+        unlocked = Mathf.Max(index, unlocked);
         UpdateShow();
     }
 }
