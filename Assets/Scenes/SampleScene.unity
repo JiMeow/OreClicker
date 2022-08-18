@@ -12933,7 +12933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8140190888217308216, guid: dbf87fa2ef073234d91e46b5e9994415, type: 3}
       propertyPath: debug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8140190888217308216, guid: dbf87fa2ef073234d91e46b5e9994415, type: 3}
       propertyPath: allTrade.Array.data[0]
