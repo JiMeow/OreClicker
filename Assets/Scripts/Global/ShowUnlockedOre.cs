@@ -16,6 +16,15 @@ public class ShowUnlockedOre : MonoBehaviour
         instance = this;
     }
 
+
+    /// <summary>
+    /// It updates the itemui when start game
+    /// </summary>
+    private void Start()
+    {
+        UpdateShow();
+    }
+
     /// <summary>
     /// If the index of the ore is less than the number of unlocked ores, then show the ore. Otherwise,
     /// hide it
