@@ -10,10 +10,13 @@ TagManager:
   - Apple
   - UpgradeHide
   - GoldenApple
-  - UpgradeLevel1
   - Stone
   - StoneBar
   - CoalBar
+  - Copper
+  - Quart
+  - CopperBar
+  - QuartBar
   layers:
   - Default
   - TransparentFX
