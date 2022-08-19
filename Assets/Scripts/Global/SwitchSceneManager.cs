@@ -25,6 +25,7 @@ public class SwitchSceneManager : MonoBehaviour
         sceneList = new string[10];
         sceneList[0] = "Grass";
         sceneList[1] = "Stone";
+        sceneList[1] = "Copper";
     }
 
     // Grass at 0, 0f
@@ -75,6 +76,9 @@ public class SwitchSceneManager : MonoBehaviour
                 break;
             case 1:
                 StartCoroutine(MoveMainCamera(9.98f));
+                break;
+            case 2:
+                StartCoroutine(MoveMainCamera(20.57f));
                 break;
         }
         nowScene = index;

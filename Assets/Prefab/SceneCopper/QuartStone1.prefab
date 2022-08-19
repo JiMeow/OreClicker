@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5406016395478868938}
   - component: {fileID: 5406016395478868943}
   m_Layer: 0
-  m_Name: QuartStone
+  m_Name: QuartStone1
   m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
