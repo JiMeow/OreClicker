@@ -32,10 +32,10 @@ Transform:
   - {fileID: 9142591170942305569}
   - {fileID: 9040196074093139433}
   - {fileID: 8361147023671738219}
-  - {fileID: 7989940970467131330}
   - {fileID: 7572424324076194563}
-  - {fileID: 4610982159747263519}
+  - {fileID: 7989940970467131330}
   - {fileID: 7572424323384370350}
+  - {fileID: 4610982159747263519}
   - {fileID: 4227797462803326291}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,6 +95,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CopperStone
       objectReference: {fileID: 0}
+    - target: {fileID: 4438474029659048941, guid: 47644907fc67e2b49980ec42fa5b2637, type: 3}
+      propertyPath: copperOrePrefab
+      value: 
+      objectReference: {fileID: 7572424324076194561}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47644907fc67e2b49980ec42fa5b2637, type: 3}
 --- !u!4 &475463255385065521 stripped
@@ -109,9 +113,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6972174733211794438}
     m_Modifications:
+    - target: {fileID: 2576354538424895100, guid: 510788fc37213074e9a6d2c9581033e9, type: 3}
+      propertyPath: NPCStone
+      value: 
+      objectReference: {fileID: 4227797462803326289}
     - target: {fileID: 8356642918106692892, guid: 510788fc37213074e9a6d2c9581033e9, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8356642918106692892, guid: 510788fc37213074e9a6d2c9581033e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -159,6 +167,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 510788fc37213074e9a6d2c9581033e9, type: 3}
+--- !u!1 &7572424323384370348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8356642918106692894, guid: 510788fc37213074e9a6d2c9581033e9, type: 3}
+  m_PrefabInstance: {fileID: 1940600331789539762}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7572424323384370350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8356642918106692892, guid: 510788fc37213074e9a6d2c9581033e9, type: 3}
@@ -171,13 +184,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6972174733211794438}
     m_Modifications:
+    - target: {fileID: 3910097971514240452, guid: 028b9359b4e3813439409b759303ec06, type: 3}
+      propertyPath: NPCStone
+      value: 
+      objectReference: {fileID: 4227797462803326289}
     - target: {fileID: 4791576027154629652, guid: 028b9359b4e3813439409b759303ec06, type: 3}
       propertyPath: m_Name
       value: CopperOre
       objectReference: {fileID: 0}
     - target: {fileID: 4791576027154629654, guid: 028b9359b4e3813439409b759303ec06, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4791576027154629654, guid: 028b9359b4e3813439409b759303ec06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -221,6 +238,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 028b9359b4e3813439409b759303ec06, type: 3}
+--- !u!1 &7572424324076194561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4791576027154629652, guid: 028b9359b4e3813439409b759303ec06, type: 3}
+  m_PrefabInstance: {fileID: 3128241216240652053}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7572424324076194563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4791576027154629654, guid: 028b9359b4e3813439409b759303ec06, type: 3}
@@ -233,6 +255,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6972174733211794438}
     m_Modifications:
+    - target: {fileID: 702430928239893822, guid: 35924f9c7b6ad214084fb40c23e993fd, type: 3}
+      propertyPath: quartOrePrefab
+      value: 
+      objectReference: {fileID: 7572424323384370348}
     - target: {fileID: 5406016395478868939, guid: 35924f9c7b6ad214084fb40c23e993fd, type: 3}
       propertyPath: m_Name
       value: QuartStone
@@ -343,6 +369,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8262300789231141096, guid: d2274dd15bdc41f41b72b1d585afb263, type: 3}
+      propertyPath: quartOrePrefab
+      value: 
+      objectReference: {fileID: 7572424323384370348}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2274dd15bdc41f41b72b1d585afb263, type: 3}
 --- !u!4 &8361147023671738219 stripped
@@ -363,7 +393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8529877611542773023, guid: 124308fbcf30b7844800de0158751f07, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8529877611542773023, guid: 124308fbcf30b7844800de0158751f07, type: 3}
       propertyPath: m_LocalPosition.x
@@ -469,6 +499,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf5bf97b7564b8e46ac628601d653884, type: 3}
+--- !u!1 &4227797462803326289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7122913490451386672, guid: cf5bf97b7564b8e46ac628601d653884, type: 3}
+  m_PrefabInstance: {fileID: 6374154161512117345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4227797462803326291 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7122913490451386674, guid: cf5bf97b7564b8e46ac628601d653884, type: 3}
@@ -483,7 +518,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 708336416150854969, guid: e34b9536830ff6645ba21f53f28e6420, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 708336416150854969, guid: e34b9536830ff6645ba21f53f28e6420, type: 3}
       propertyPath: m_LocalPosition.x
@@ -591,6 +626,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CopperStone2
       objectReference: {fileID: 0}
+    - target: {fileID: 8891284294445585367, guid: 4a3bb570ba243d94faaa2688ae971b1a, type: 3}
+      propertyPath: copperOrePrefab
+      value: 
+      objectReference: {fileID: 7572424324076194561}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a3bb570ba243d94faaa2688ae971b1a, type: 3}
 --- !u!4 &9142591170942305569 stripped

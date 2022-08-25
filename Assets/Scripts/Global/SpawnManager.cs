@@ -32,6 +32,21 @@ public class SpawnManager : MonoBehaviour
     float bottomrightxStone = 2.75f + 9.98f;
     float bottomrightyStone = -1.0f;
 
+    [Header("Spawn Copper Settings")]
+    [SerializeField]
+    GameObject[] copperStonePrefab;
+    [SerializeField]
+    GameObject[] quartStonePrefab;
+    public int maxCopperAndQuartInScene = 25;
+    public float spawnCopperStoneTime;
+    public float countCopperStoneTime;
+    public float spawnQuartStoneTime;
+    public float countQuartStoneTime;
+    float topleftxCopperAndQuartStone = -2.65f + 20.57f;
+    float topleftyCopperAndQuartStone = 1.00f;
+    float bottomrightxCopperAndQuartStone = 2.75f + 20.57f;
+    float bottomrightyCopperAndQuartStone = -1.0f;
+
     private void Awake()
     {
         instance = this;
@@ -43,6 +58,8 @@ public class SpawnManager : MonoBehaviour
         coalDropRate = 25;
         spawnTreeTime = 5.0f;
         spawnStoneTime = 10.0f;
+        spawnCopperStoneTime = 7.5f;
+        spawnQuartStoneTime = 10f;
     }
 
     private void Update()
@@ -65,6 +82,28 @@ public class SpawnManager : MonoBehaviour
             {
                 SpawnStone();
                 countStoneTime = 0;
+            }
+        }
+        countCopperStoneTime += Time.deltaTime;
+        // every spawnTime seconds, spawn a copper stone
+        if (countCopperStoneTime > spawnCopperStoneTime)
+        {
+            if (GameObject.FindGameObjectsWithTag("Quart").Length + GameObject.FindGameObjectsWithTag("Copper").Length <
+                maxCopperAndQuartInScene)
+            {
+                SpawnCopperStone();
+                countCopperStoneTime = 0;
+            }
+        }
+        countQuartStoneTime += Time.deltaTime;
+        // every spawnTime seconds, spawn a quartstone
+        if (countQuartStoneTime > spawnQuartStoneTime)
+        {
+            if (GameObject.FindGameObjectsWithTag("Quart").Length + GameObject.FindGameObjectsWithTag("Copper").Length <
+                maxCopperAndQuartInScene)
+            {
+                SpawnQuartStone();
+                countQuartStoneTime = 0;
             }
         }
     }
@@ -115,6 +154,40 @@ public class SpawnManager : MonoBehaviour
         {
             newStone.GetComponent<StoneBrickManager>().SetCoalDropRate(coalDropRate);
         }
+    }
+
+    /// <summary>
+    /// It creates a random position within the bounds of the map, and then spawns a copper stone at that
+    /// position
+    /// </summary>
+    private void SpawnCopperStone()
+    {
+        if (SwitchSceneManager.instance.GetMapUnlocked() < 3)
+            return;
+        float x = Random.Range(topleftxCopperAndQuartStone, bottomrightxCopperAndQuartStone);
+        float y = Random.Range(topleftyCopperAndQuartStone, bottomrightyCopperAndQuartStone);
+        Vector3 spawnPoint = new Vector3(x, y, -1f);
+        GameObject newStone = Instantiate(copperStonePrefab[Random.Range(0, copperStonePrefab.Length)], spawnPoint, Quaternion.identity);
+
+        float multipleScale = Random.Range(1f, 1.25f);
+        newStone.transform.localScale *= multipleScale;
+    }
+
+    /// <summary>
+    /// It creates a random position within the bounds of the map, and then spawns a quart stone at that
+    /// position
+    /// </summary>
+    private void SpawnQuartStone()
+    {
+        if (SwitchSceneManager.instance.GetMapUnlocked() < 3)
+            return;
+        float x = Random.Range(topleftxCopperAndQuartStone, bottomrightxCopperAndQuartStone);
+        float y = Random.Range(topleftyCopperAndQuartStone, bottomrightyCopperAndQuartStone);
+        Vector3 spawnPoint = new Vector3(x, y, -1f);
+        GameObject newStone = Instantiate(quartStonePrefab[Random.Range(0, quartStonePrefab.Length)], spawnPoint, Quaternion.identity);
+
+        float multipleScale = Random.Range(1f, 1.25f);
+        newStone.transform.localScale *= multipleScale;
     }
 
     /// <summary>

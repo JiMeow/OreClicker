@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1217974878064452856}
   - component: {fileID: 1217974878064452863}
   - component: {fileID: 1217974878064452858}
+  - component: {fileID: 8891284294445585367}
   m_Layer: 0
   m_Name: CopperStone2
   m_TagString: Stone
@@ -123,7 +124,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.16, y: 0.15}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -137,3 +138,18 @@ PolygonCollider2D:
       - {x: 0.08, y: -0.08}
       - {x: 0.08, y: 0.02}
       - {x: 0.03, y: 0.08}
+--- !u!114 &8891284294445585367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217974878064452862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9612ba56b7f1e41bb71be98f511af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copperOrePrefab: {fileID: 0}
+  durable: 5
+  dropRate: 80

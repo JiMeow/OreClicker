@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71a8855b31cf0145b5b1bdc98544bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quantity: 0000000000000000000000000000000000000000
+  quantity: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &3674810142388345934
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,6 +327,17 @@ MonoBehaviour:
   maxStoneInScene: 25
   spawnStoneTime: 10
   countStoneTime: 0
+  copperStonePrefab:
+  - {fileID: 0}
+  - {fileID: 0}
+  quartStonePrefab:
+  - {fileID: 0}
+  - {fileID: 0}
+  maxCopperAndQuartInScene: 25
+  spawnCopperStoneTime: 0
+  countCopperStoneTime: 0
+  spawnQuartStoneTime: 0
+  countQuartStoneTime: 0
 --- !u!1 &6376709987322542259
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,3 +490,4 @@ MonoBehaviour:
   hitStoneSound: {fileID: 8486775904560045546, guid: 57430899ea146d046b68ab141dcb2f05, type: 3}
   stoneWasDestroyedSound: {fileID: 7205419237253151175, guid: 50c0942376675474a8491e5aff102e6e, type: 3}
   pickUpItem: {fileID: 578386289812044752, guid: 399eba60d7de2ad45b0d6365ede8a236, type: 3}
+  upgradeSuccessSound: {fileID: 0}

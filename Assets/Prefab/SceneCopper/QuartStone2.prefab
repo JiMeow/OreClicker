@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5406016395478868941}
   - component: {fileID: 5406016395478868938}
   - component: {fileID: 5406016395478868943}
+  - component: {fileID: 8262300789231141096}
   m_Layer: 0
   m_Name: QuartStone2
   m_TagString: Stone
@@ -123,7 +124,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.16, y: 0.15}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -137,3 +138,18 @@ PolygonCollider2D:
       - {x: 0.08, y: -0.08}
       - {x: 0.08, y: 0.02}
       - {x: 0.03, y: 0.08}
+--- !u!114 &8262300789231141096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5406016395478868939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5740b0ecfd1796a419bd60069b7f4d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quartOrePrefab: {fileID: 0}
+  durable: 7
+  dropRate: 75

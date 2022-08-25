@@ -9,7 +9,7 @@ public class InventoryManager : MonoBehaviour
     // reference from "Name of the item" to "index of the item in the array (quantity)"
     // like "Apple" to "0"
     Dictionary<string, int> NameToIndex;
-    public int[] quantity = new int[5];
+    public int[] quantity = new int[20];
 
     private void Awake()
     {
@@ -23,6 +23,8 @@ public class InventoryManager : MonoBehaviour
         NameToIndex.Add("GoldenApple", 1);
         NameToIndex.Add("StoneBar", 2);
         NameToIndex.Add("CoalBar", 3);
+        NameToIndex.Add("Copper", 4);
+        NameToIndex.Add("Quart", 5);
         LoadInventory();
     }
 
@@ -79,6 +81,8 @@ public class InventoryManager : MonoBehaviour
         quantity[1] = SaveGameManager.instance.LoadGameInt("GoldenApple");
         quantity[2] = SaveGameManager.instance.LoadGameInt("StoneBar");
         quantity[3] = SaveGameManager.instance.LoadGameInt("CoalBar");
+        quantity[4] = SaveGameManager.instance.LoadGameInt("Copper");
+        quantity[5] = SaveGameManager.instance.LoadGameInt("Quart");
         UIManager.instance.SetQuantityText();
     }
 }

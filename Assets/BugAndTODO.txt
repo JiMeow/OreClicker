@@ -21,6 +21,12 @@
 
 * hide ore that player not found //
 
-* edit buy item on stone scene
-** add chest stone //
-** next stone stage  ? no neext stage yet(coming soon) 
+* edit buy item on stone scene//
+* add chest stone //
+* next stone stage  ? no neext stage yet(coming soon) //
+
+* upgrade for scene3 (designed for buy)
+* furnance for scene 3
+* add animation for copper stone and quart stone
+* add shop in scene 2 or 3 may be hide item on shop if not found
+* find sound for copper, gold and furnance

@@ -171,7 +171,9 @@ public class BuyManager2 : MonoBehaviour
             }
             UIManager.instance.SetQuantityText();
             UIManager.instance.ShowNextUpgradeGoNextStageStone(0);
-            // SwitchSceneManager.instance.UnlockNewScene();
+            SwitchSceneManager.instance.UnlockNewScene();
+            ShowUnlockedOre.instance.UnlockOre(5);
+            ShowUnlockedOre.instance.UnlockOre(6);
         }
     }
 

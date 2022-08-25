@@ -23161,6 +23161,16 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6528576604603340606, guid: 1d9db28e61f7f0243a848f4c6821c4be, type: 3}
   m_PrefabInstance: {fileID: 6528576603259775364}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1362244425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9142591170942305574, guid: b31db2258d998f347a7de7ffc2cbd8a3, type: 3}
+  m_PrefabInstance: {fileID: 6972174732632124574}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1489424072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8361147023671738220, guid: b31db2258d998f347a7de7ffc2cbd8a3, type: 3}
+  m_PrefabInstance: {fileID: 6972174732632124574}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1530617910 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8528995808396682150, guid: 1631b7a7ee647024f98c240a1add942f, type: 3}
@@ -23211,6 +23221,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1621784233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9040196074093139438, guid: b31db2258d998f347a7de7ffc2cbd8a3, type: 3}
+  m_PrefabInstance: {fileID: 6972174732632124574}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &1641294590 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 4398349918111837249, guid: 7daeb7a35df42d443835d5a8425dcdb2, type: 3}
@@ -23259,6 +23274,22 @@ PrefabInstance:
       propertyPath: coalDropRate
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 1470997449022501789, guid: dbf87fa2ef073234d91e46b5e9994415, type: 3}
+      propertyPath: quartStonePrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 1621784233}
+    - target: {fileID: 1470997449022501789, guid: dbf87fa2ef073234d91e46b5e9994415, type: 3}
+      propertyPath: quartStonePrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 1489424072}
+    - target: {fileID: 1470997449022501789, guid: dbf87fa2ef073234d91e46b5e9994415, type: 3}
+      propertyPath: copperStonePrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 1938573702}
+    - target: {fileID: 1470997449022501789, guid: dbf87fa2ef073234d91e46b5e9994415, type: 3}
+      propertyPath: copperStonePrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 1362244425}
     - target: {fileID: 4228160448261778451, guid: dbf87fa2ef073234d91e46b5e9994415, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -23361,7 +23392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8140190888217308216, guid: dbf87fa2ef073234d91e46b5e9994415, type: 3}
       propertyPath: debug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8140190888217308216, guid: dbf87fa2ef073234d91e46b5e9994415, type: 3}
       propertyPath: allTrade.Array.data[0]
@@ -32861,6 +32892,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1938573702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 475463255385065526, guid: b31db2258d998f347a7de7ffc2cbd8a3, type: 3}
+  m_PrefabInstance: {fileID: 6972174732632124574}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2014671897 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8140190888217308216, guid: dbf87fa2ef073234d91e46b5e9994415, type: 3}
@@ -32881,40 +32917,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d094a46e0d075b741b3c876063761750, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &708336415605753906 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7572424323384370348, guid: b31db2258d998f347a7de7ffc2cbd8a3, type: 3}
-  m_PrefabInstance: {fileID: 6972174732632124574}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &708336416641984415 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7572424324076194561, guid: b31db2258d998f347a7de7ffc2cbd8a3, type: 3}
-  m_PrefabInstance: {fileID: 6972174732632124574}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &869538512337122390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708336416641984415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb4dd3d55d4e14943ad774aef7e1c2a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &869538513852079097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708336415605753906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8af42aa7f53df3543baebee04d788b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1941890962650898908
@@ -33111,18 +33113,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6528576603702254837, guid: 1d9db28e61f7f0243a848f4c6821c4be, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6528576604603340601, guid: 1d9db28e61f7f0243a848f4c6821c4be, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -10.91
-      objectReference: {fileID: 0}
-    - target: {fileID: 6528576604603340601, guid: 1d9db28e61f7f0243a848f4c6821c4be, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.949
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d9db28e61f7f0243a848f4c6821c4be, type: 3}
 --- !u!1001 &6972174732632124574
@@ -33179,6 +33169,14 @@ PrefabInstance:
     - target: {fileID: 6972174733211794441, guid: b31db2258d998f347a7de7ffc2cbd8a3, type: 3}
       propertyPath: m_Name
       value: SceneCopper
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572424323384370348, guid: b31db2258d998f347a7de7ffc2cbd8a3, type: 3}
+      propertyPath: m_TagString
+      value: Quart
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572424324076194561, guid: b31db2258d998f347a7de7ffc2cbd8a3, type: 3}
+      propertyPath: m_TagString
+      value: Copper
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b31db2258d998f347a7de7ffc2cbd8a3, type: 3}

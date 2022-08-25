@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8356642918106692892}
   - component: {fileID: 8356642918106692895}
   - component: {fileID: 8520105609876696788}
+  - component: {fileID: 2576354538424895100}
   m_Layer: 0
   m_Name: QuartOre
   m_TagString: CoalBar
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8356642918106692894}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.991, y: -1.488, z: 4.8323836}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -120,3 +121,16 @@ PolygonCollider2D:
       - {x: 0.07, y: -0.03}
       - {x: 0.07, y: 0.04}
       - {x: 0.049999997, y: 0.06}
+--- !u!114 &2576354538424895100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8356642918106692894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8af42aa7f53df3543baebee04d788b0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPCStone: {fileID: 0}
