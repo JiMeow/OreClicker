@@ -145,6 +145,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5094472499532528, guid: 1631b7a7ee647024f98c240a1add942f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0002336227
+      objectReference: {fileID: 0}
     - target: {fileID: 5753359743758615, guid: 1631b7a7ee647024f98c240a1add942f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
@@ -1733,7 +1737,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.57, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23392,7 +23396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8140190888217308216, guid: dbf87fa2ef073234d91e46b5e9994415, type: 3}
       propertyPath: debug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8140190888217308216, guid: dbf87fa2ef073234d91e46b5e9994415, type: 3}
       propertyPath: allTrade.Array.data[0]
